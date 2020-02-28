@@ -3,12 +3,13 @@
 
 <#macro hubBox options>
     <#if options??>
-        <article class="hub-box${(options.imagesection??)?then(' hub-box--with-icon', '')}">
-            <#if options.background??>
-            <div class="hub-box__image" style="background-image: url('${options.background}');"></div>
+        <#assign hasImageSection = options.imagesection?? />
+        <article class="hub-box${(hasImageSection)?then(' hub-box--with-icon', '')}${(options.sameStyle??)?then(' hub-box--same-style', '')}${(options.noBorder??)?then(' hub-box--no-border', '')}${(options.noPadding??)?then(' hub-box--no-padding', '')}${(options.noBackgroundCol??)?then(' hub-box--no-background-col', '')}">
+        <#if options.background??>
+                <div class="hub-box__image" style="background-image: url('${options.background}');"></div>
             </#if>
 
-            <#if options.imagesection??>
+            <#if hasImageSection>
                 <div class="hub-box__icon">
                   <#if options.imagesection != "EMPTY">
                   <#assign alttext = options.imagesection.alttext />
@@ -61,7 +62,6 @@
                             </#list>
                         </ul>
                     </div>
-
                 </#if>
 
                 <#if options.types??>
