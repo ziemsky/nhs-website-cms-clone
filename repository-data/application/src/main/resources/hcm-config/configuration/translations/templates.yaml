@@ -19,7 +19,6 @@ definitions:
       new-statistical-publications-and-clinical-indicators-folder: new folder
       new-supplementary-info-document: new supplementary information document
       new-supplementary-info-folder: new folder
-      new-supplementary-info-hub-document: new supplementary information hub document
       new-translated-folder: new folder
     /hippo:configuration/hippo:translations/hippo:types:
       /common:stringlist:
