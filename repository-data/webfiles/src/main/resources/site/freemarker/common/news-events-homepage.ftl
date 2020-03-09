@@ -6,31 +6,10 @@
 <#include "macro/stickyNavSections.ftl">
 <#include "macro/stickyNavTags.ftl">
 <#include "macro/hubBox.ftl">
+<#include "macro/sections/sections.ftl">
 
 <#-- Add meta tags -->
 <@metaTags></@metaTags>
-
-<#--Document Data-->
-<#assign document = {} />
-<#assign document += {"title":"News and Events", "summary": {"content":"Find all the latest news and events related content."}, "bannercontrols":{"icon":{"original":"images/penpaper.svg"}}} />
-
-<#--News data-->
-<#assign document += {"newsData":[{}, {}]} />
-
-<#--Blog data-->
-<#assign document += {"blogData":[{}, {}]} />
-
-<#--Feature data-->
-<#assign document += {"featureData":[{}, {}]} />
-
-<#--Resource data-->
-<#assign document += {"resourceData":[{}, {}, {}, {}]} />
-
-<#--Contact data-->
-<#assign document += {"contactData":[{}]} />
-
-<#--Social Media data-->
-<#assign document += {"socialData":[{}]} />
 
 <#--Resource Bundle-->
 <@hst.setBundle basename="rb.doctype.news-events-homepage"/>
@@ -38,11 +17,8 @@
 <@fmt.message key="label.all-news" var="viewAllNews"/>
 <@fmt.message key="headers.blogs" var="latestBlogs"/>
 <@fmt.message key="label.all-blogs" var="viewAllBlogs"/>
-<@fmt.message key="headers.features" var="features"/>
-<@fmt.message key="headers.resources" var="resources"/>
 <@fmt.message key="headers.contact" var="contactUs"/>
 <@fmt.message key="headers.follow" var="followUs"/>
-
 
 
 <#--Modifiers-->
@@ -52,55 +28,38 @@
 <#assign sameStyle = {"sameStyle": true} />
 
 
+<#if document.socialmedia.othersocialmedias?has_content>
+    <#list document.socialmedia.othersocialmedias as other>
+        <#assign facebookSocial = (other.title?lower_case == 'facebook')?then(other,{}) />
+    </#list>
+</#if>
 
+<#assign hasSocialMedia = document.socialmedia.linkedinlink?has_content || document.socialmedia.twitteruser?has_content || facebookSocial?has_content/>
 
-<article class="article article--news-hub" aria-label="Document Header">
-<#--    <@documentHeader document 'news-events-homepage' '' '' '' '' false></@documentHeader>-->
-
-    <div class="grid-wrapper grid-wrapper--full-width grid-wrapper--wide">
-        <div class="local-header article-header article-header--with-icon">
-            <div class="grid-wrapper">
-                <div class="article-header__inner">
-                    <div class="grid-row">
-                        <div class="column--two-thirds column--reset">
-                            <h1 class="local-header__title" data-uipath="document.title">${document.title}</h1>
-                            <p class="article-header__subtitle" data-uipath="website.news-events-homepage.summary">${document.summary.content}</p>
-                        </div>
-                        <div class="column--one-third column--reset local-header__icon">
-                            <img src="<@hst.webfile path="${document.bannercontrols.icon.original}" fullyQualified=true/>" alt="${document.title}">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<article class="article article--news-hub">
+    <@documentHeader document 'news-events-homepage' '' '' '' '' false></@documentHeader>
 
     <div class="grid-wrapper grid-wrapper--article" aria-label="Document Content">
         <div class="grid-row">
             <div class="column column--one-quarter page-block page-block--sidebar">
                 <div id="sticky-nav">
-                    <#assign index = [] />
-                    <#if document.newsData?has_content>
-                        <#assign index += [latestNews] />
-                    </#if>
-                    <#if document.blogData?has_content>
-                        <#assign index += [latestBlogs] />
-                    </#if>
-                    <#if document.featureData?has_content>
-                        <#assign index += [features] />
-                    </#if>
-                    <#if document.contactData?has_content>
-                        <#assign index += [contactUs] />
-                    </#if>
-                    <#if document.socialData?has_content>
-                        <#assign index += [followUs] />
-                    </#if>
-
                     <#assign links = [] />
 
-                    <#list index as i>
-                        <#assign links += [{ "url": "#" + slugify(i), "title": i }] />
-                    </#list>
+                    <#if document.newsData?has_content>
+                        <#assign links += [{ "url": "#" + slugify(latestNews), "title": latestNews }] />
+                    </#if>
+                    <#if document.blogData?has_content>
+                        <#assign links += [{ "url": "#" + slugify(latestBlogs), "title": latestBlogs }] />
+                    </#if>
+                    <#if document.sections?has_content>
+                        <#assign links += getNavLinksInMultiple(document.sections) />
+                    </#if>
+                    <#if document.contactDetails?has_content>
+                        <#assign links += [{ "url": "#" + slugify(contactUs), "title": contactUs }] />
+                    </#if>
+                    <#if hasSocialMedia>
+                        <#assign links += [{ "url": "#" + slugify(followUs), "title": followUs }] />
+                    </#if>
 
                     <@stickyNavSections getStickySectionNavLinks({"sections": links})></@stickyNavSections>
                 </div>
@@ -114,14 +73,24 @@
                             <div class="column column--reset">
                                 <div class="hub-box-list bottom-margin-20" id="${slugify(latestNews)}-list">
                                     <#list document.newsData as news>
-                                        <#assign data = {"title": "HSCN Summit 2018", "date": "18 January 2018", "text": "Conveniently orchestrate user friendly models without revolutionary.", "imagesection": "EMPTY", "link": "#" } />
-                                        <#assign data += noBorder + noBackgroundCol + noPadding />
-                                        <@hubBox data ></@hubBox>
+                                        <#assign item = news />
+
+                                        <#assign item = { "title": item.title, "text": item.shortsummary} />
+
+                                        <@hst.link hippobean=news var="newsLink" />
+                                        <@fmt.formatDate value=news.publisheddatetime.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="date" />
+
+                                        <#assign item += { "link": newsLink, "date": date } />
+                                        <#assign item += { "imagesection": news.leadimagesection?has_content?then(news.leadimagesection, "EMPTY")} />
+
+                                    <#--                                        <#assign item += noBorder + noBackgroundCol + noPadding />-->
+                                        <@hubBox item ></@hubBox>
                                     </#list>
                                 </div>
                             </div>
                         </div>
                         <div class="grid-row bottom-margin-20">
+                            <#--TODO: link to all news -->
                             <a href="#">${viewAllNews}</a>
                         </div>
                     </div>
@@ -134,98 +103,77 @@
                             <div class="column column--reset">
                                 <div class="hub-box-list bottom-margin-20" id="${slugify(latestBlogs)}-list">
                                     <#list document.blogData as blog>
-                                        <#assign data = {"title": "HSCN Summit 2018", "date": "18 January 2018", "text": "Conveniently orchestrate user friendly models without revolutionary.", "imagesection": "EMPTY", "link": "#" } />
-                                        <#assign data += noBorder + noBackgroundCol + noPadding + sameStyle/>
-                                        <@hubBox data ></@hubBox>
+                                        <#assign item = blog />
+
+                                        <#assign item = { "title": item.title, "text": item.shortsummary} />
+
+                                        <@hst.link hippobean=blog var="blogLink" />
+
+                                        <@fmt.formatDate value=blog.dateOfPublication.time type="Date" pattern="EEEE d MMMM yyyy" timeZone="${getTimeZone()}" var="date" />
+
+                                        <#assign item += { "link": blogLink, "date": date } />
+                                        <#assign item += { "imagesection": blog.leadimagesection?has_content?then(blog.leadimagesection, "EMPTY")} />
+
+                                        <#assign item += sameStyle/>
+                                    <#--                                        <#assign item += noBorder + noBackgroundCol + noPadding + sameStyle />-->
+                                        <@hubBox item ></@hubBox>
                                     </#list>
                                 </div>
                             </div>
                         </div>
                         <div class="grid-row bottom-margin-20">
+                            <#--TODO: link to all blogs -->
                             <a href="#">${viewAllBlogs}</a>
                         </div>
                     </div>
                 </#if>
 
-                <#if document.featureData?has_content>
-                    <div class="article-section article-section--letter-group" id="${slugify(features)}">
-                        <h2>${features}</h2>
-                        <div class="grid-row">
-                            <div class="column column--reset">
-                                <div class="hub-box-list bottom-margin-20" id="${slugify(features)}-list">
-                                    <#list document.blogData as blog>
-                                        <#assign data = {"title": "HSCN Summit 2018", "date": "18 January 2018", "text": "Conveniently orchestrate user friendly models without revolutionary.", "imagesection": "EMPTY", "link": "#" } />
-                                        <#assign data += noBorder + noBackgroundCol + noPadding + sameStyle/>
-                                        <@hubBox data ></@hubBox>
-                                    </#list>
-                                </div>
-                            </div>
-                        </div>
+                <#if document.sections?has_content>
+                    <div class="article-section">
+                        <@sections document.sections></@sections>
                     </div>
                 </#if>
 
-                <#if document.resourceData?has_content>
-                    <div class="article-section article-section--letter-group" id="${slugify(resources)}">
-                        <h2>${resources}</h2>
-                        <div class="grid-row">
-                            <div class="column column--reset">
-                                <div class="hub-box-list bottom-margin-20" id="${slugify(resources)}-list">
-                                    <#assign resources = [
-                                    {"title": "Upcoming events", "text": "Conveniently orchestrate user friendly models without revolutionary.", "link": "#" },
-                                    {"title": "Journalist and media resources", "text": "Conveniently orchestrate user friendly models without revolutionary.", "link": "#" },
-                                    {"title": "Supplementary information", "text": "Conveniently orchestrate user friendly models without revolutionary.", "link": "#" },
-                                    {"title": "NHS Digital style guidelines", "text": "Conveniently orchestrate user friendly models without revolutionary.", "link": "#" }
-                                    ] />
-
-                                    <ul class="list list--reset">
-                                        <#list resources as resource>
-                                            <li>
-                                                <a href="#">${resource.title}</a>
-                                                <p>${resource.text}</p>
-                                            </li>
-                                        </#list>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </#if>
-
-                <#if document.contactData?has_content>
+                <#if document.contactDetails?has_content>
                     <div class="article-section article-section--letter-group" id="${slugify(contactUs)}">
                         <h2>${contactUs}</h2>
                         <div class="grid-row">
                             <div class="column column--reset bottom-margin-20">
-                                <p>To report an urgent cyber security issue, call 0300 303 5222 or email: <a href="#">carecert@nhsdigital.nhs.uk</a></p>
-                                <p>For general queries, to sign-up to any of our services or to give us feedback, telephone: 0300 303 5222 or email: <a href="#">carecert@nhsdigital.nhs.uk</a></p>
+                                <@hst.html hippohtml=document.contactDetails contentRewriter=gaContentRewriter/>
                             </div>
                         </div>
                     </div>
                 </#if>
 
-                <#if document.socialData?has_content>
+                <#if hasSocialMedia>
                     <div class="article-section article-section--letter-group" id="${slugify(followUs)}">
                         <h2>${followUs}</h2>
                         <div class="grid-row">
                             <div class="column column--reset">
                                 <div class="blog-social">
-                                    <div class="blog-social-icon like-first-child">
-                                        <a target="_blank" href="https://www.facebook.com/NHSDigitalOfficial/">
-                                            <img src="<@hst.webfile path="/images/icon/Facebook.svg"/>" alt="Follow on Facebook" class="blog-social-icon__img" />
-                                        </a>
-                                    </div>
+                                    <#if facebookSocial?has_content >
+                                        <div class="blog-social-icon like-first-child">
+                                            <a target="_blank" href="${facebookSocial.link}">
+                                                <img src="<@hst.webfile path="/images/icon/Facebook.svg"/>" alt="Follow on Facebook" class="blog-social-icon__img" />
+                                            </a>
+                                        </div>
+                                    </#if>
 
-                                    <div class="blog-social-icon like-first-child">
-                                        <a target="_blank" href="https://twitter.com/NHSDigital">
-                                            <img src="<@hst.webfile path="/images/icon/Twitter.svg"/>" alt="Follow on Twitter" class="blog-social-icon__img" />
-                                        </a>
-                                    </div>
+                                    <#if document.socialmedia.twitteruser?has_content>
+                                        <div class="blog-social-icon like-first-child">
+                                            <a target="_blank" href="https://twitter.com/${document.socialmedia.twitteruser}">
+                                                <img src="<@hst.webfile path="/images/icon/Twitter.svg"/>" alt="Follow on Twitter" class="blog-social-icon__img" />
+                                            </a>
+                                        </div>
+                                    </#if>
 
-                                    <div class="blog-social-icon like-first-child">
-                                        <a target="_blank" href="https://www.linkedin.com/company/nhs-digital">
-                                            <img src="<@hst.webfile path="/images/icon/LinkedIn.svg"/>" alt="Follow on LinkedIn" class="blog-social-icon__img" />
-                                        </a>
-                                    </div>
+                                    <#if document.socialmedia.linkedinlink?has_content>
+                                        <div class="blog-social-icon like-first-child">
+                                            <a target="_blank" href="${document.socialmedia.linkedinlink}">
+                                                <img src="<@hst.webfile path="/images/icon/LinkedIn.svg"/>" alt="Follow on LinkedIn" class="blog-social-icon__img" />
+                                            </a>
+                                        </div>
+                                    </#if>
                                 </div>
                             </div>
                         </div>

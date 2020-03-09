@@ -1,61 +1,117 @@
 /content/documents/administration/resources:
-  jcr:primaryType: hippostd:folder
-  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-  jcr:uuid: 4dcd5faf-deed-4b06-9693-d5455c597b8e
-  hippo:name: Resources
-  hippostd:foldertype: [new-document, new-folder]
   /news-events-homepage-resource:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: a9e85557-3309-46d8-950f-887e1b4bbb93
-    hippo:name: News Events Homepage Resource
-    hippo:versionHistory: 206119c4-ebc7-4203-b0ad-42ddcc4c03e8
     /news-events-homepage-resource[1]:
-      jcr:primaryType: resourcebundle:resourcebundle
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 206a05cc-fbd3-4e87-9471-a1d7c3f0a386
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-03-09T14:39:37.460Z
-      hippostdpubwf:lastModificationDate: 2020-03-10T15:31:09.006Z
+      hippostdpubwf:lastModificationDate: 2020-03-16T10:11:53.063Z
       hippostdpubwf:lastModifiedBy: admin
-      resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
-      resourcebundle:id: rb.doctype.news-events-homepage
-      resourcebundle:keys: [headers.news, headers.blogs, headers.resources, headers.contact,
-        label.all-news, label.all-blogs, headers.features, headers.follow]
-      resourcebundle:messages: [Latest news, Latest blog, Resources, Contact us, View
-          all news, View all blogs, Features, Follow us on social media]
-    /news-events-homepage-resource[2]:
+      jcr:mixinTypes:
+        - mix:referenceable
       jcr:primaryType: resourcebundle:resourcebundle
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: 7656922f-3ba4-4e2d-b04b-5c51c7eed5a1
-      hippo:availability: [preview]
+      resourcebundle:descriptions:
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+      resourcebundle:id: rb.doctype.news-events-homepage
+      resourcebundle:keys:
+        - headers.news
+        - headers.blogs
+        - headers.contact
+        - label.all-news
+        - label.all-blogs
+        - headers.follow
+      resourcebundle:messages:
+        - Latest news
+        - Latest blog
+        - Contact us
+        - View all news
+        - View all blogs
+        - Follow us on social media
+    /news-events-homepage-resource[2]:
+      hippo:availability:
+        - preview
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-03-09T14:39:37.460Z
-      hippostdpubwf:lastModificationDate: 2020-03-10T15:31:14.322Z
+      hippostdpubwf:lastModificationDate: 2020-03-16T10:12:16.796Z
       hippostdpubwf:lastModifiedBy: admin
-      resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
-      resourcebundle:id: rb.doctype.news-events-homepage
-      resourcebundle:keys: [headers.news, headers.blogs, headers.resources, headers.contact,
-        label.all-news, label.all-blogs, headers.features, headers.follow]
-      resourcebundle:messages: [Latest news, Latest blog, Resources, Contact us, View
-          all news, View all blogs, Features, Follow us on social media]
-    /news-events-homepage-resource[3]:
+      jcr:mixinTypes:
+        - mix:referenceable
+        - mix:versionable
       jcr:primaryType: resourcebundle:resourcebundle
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: f3658bda-2007-4c2c-8eea-680fd9298b04
-      hippo:availability: [live]
+      resourcebundle:descriptions:
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+      resourcebundle:id: rb.doctype.news-events-homepage
+      resourcebundle:keys:
+        - headers.news
+        - headers.blogs
+        - headers.contact
+        - label.all-news
+        - label.all-blogs
+        - headers.follow
+      resourcebundle:messages:
+        - Latest news
+        - Latest blog
+        - Contact us
+        - View all news
+        - View all blogs
+        - Follow us on social media
+    /news-events-homepage-resource[3]:
+      hippo:availability:
+        - live
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-03-09T14:39:37.460Z
-      hippostdpubwf:lastModificationDate: 2020-03-10T15:31:14.322Z
+      hippostdpubwf:lastModificationDate: 2020-03-16T10:12:16.796Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2020-03-10T15:31:15.619Z
-      resourcebundle:descriptions: ['', '', '', '', '', '', '', '']
+      hippostdpubwf:publicationDate: 2020-03-16T10:12:18.682Z
+      jcr:mixinTypes:
+        - mix:referenceable
+      jcr:primaryType: resourcebundle:resourcebundle
+      resourcebundle:descriptions:
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
+        - ''
       resourcebundle:id: rb.doctype.news-events-homepage
-      resourcebundle:keys: [headers.news, headers.blogs, headers.resources, headers.contact,
-        label.all-news, label.all-blogs, headers.features, headers.follow]
-      resourcebundle:messages: [Latest news, Latest blog, Resources, Contact us, View
-          all news, View all blogs, Features, Follow us on social media]
+      resourcebundle:keys:
+        - headers.news
+        - headers.blogs
+        - headers.contact
+        - label.all-news
+        - label.all-blogs
+        - headers.follow
+      resourcebundle:messages:
+        - Latest news
+        - Latest blog
+        - Contact us
+        - View all news
+        - View all blogs
+        - Follow us on social media
+    hippo:name: News Events Homepage Resource
+    hippo:versionHistory: 1e8465ed-64d4-4941-b214-9dc7059de451
+    jcr:mixinTypes:
+      - hippo:named
+      - hippo:versionInfo
+      - mix:referenceable
+    jcr:primaryType: hippo:handle
+  hippo:name: Resources
+  hippostd:foldertype:
+    - new-document
+    - new-folder
+  jcr:mixinTypes:
+    - hippo:named
+    - mix:versionable
+  jcr:primaryType: hippostd:folder
