@@ -12,7 +12,7 @@
     <!-- Scan for auto-wiring classes in spring saml packages -->
     <context:component-scan base-package="org.springframework.security.saml"/>
 
-    <context:property-placeholder location="classpath:site-local.properties" />
+    <context:property-placeholder location="classpath:site-#{systemProperties['spring.profiles.active']}.properties" />
 
     <!-- Static Resources -->
     <http pattern="/css/**" security="none"/>
