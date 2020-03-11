@@ -12,6 +12,8 @@
     <!-- Scan for auto-wiring classes in spring saml packages -->
     <context:component-scan base-package="org.springframework.security.saml"/>
 
+    <context:property-placeholder location="classpath:site-local.properties" />
+
     <!-- Static Resources -->
     <http pattern="/css/**" security="none"/>
     <http pattern="/images/**" security="none"/>
@@ -112,7 +114,7 @@
     <beans:bean id="metadataGeneratorFilter" class="org.springframework.security.saml.metadata.MetadataGeneratorFilter">
         <beans:constructor-arg>
             <beans:bean class="org.springframework.security.saml.metadata.MetadataGenerator">
-                <beans:property name="entityId" value="urn:nhs:digital:uk"/>
+                <beans:property name="entityId" value="${spring.saml.entity.id}"/>
                 <beans:property name="extendedMetadata">
                     <beans:bean class="org.springframework.security.saml.metadata.ExtendedMetadata">
                         <beans:property name="signMetadata" value="false"/>
