@@ -144,12 +144,12 @@
         </beans:constructor-arg>
     </beans:bean>
 
+    <beans:bean id="userDetailsService" class="uk.nhs.digital.website.security.HippoSamlUserDetailsService" />
+
     <!-- SAML Authentication Provider responsible for validating of received SAML messages -->
     <beans:bean id="samlAuthenticationProvider" class="org.springframework.security.saml.SAMLAuthenticationProvider">
-        <!-- OPTIONAL property: can be used to store/load user data after login -->
-        <!--
-        <property name="userDetails" ref="bean" />
-        -->
+        <beans:property name="userDetails" ref="userDetailsService" />
+        <beans:property name="forcePrincipalAsString" value="false" />
     </beans:bean>
 
     <beans:bean id="storageFactory" class="org.springframework.security.saml.storage.EmptyStorageFactory" />
