@@ -17,7 +17,7 @@
   orderable
   - common:searchable (boolean) = 'true' autocreated
 
-[website:Hubnewsandevents] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
+[website:hubnewsandevents] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
   orderable
 
 [website:apiendpoint] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, website:basedocument
