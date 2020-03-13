@@ -1,0 +1,56 @@
+---
+/content/urlrewriter/rules/site-to-root:
+  /site-to-root[1]:
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-13T13:17:03.330Z
+    hippostdpubwf:lastModificationDate: 2020-03-13T13:17:03.330Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2008-03-26T11:03:00Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: urlrewriter:rule
+    urlrewriter:ruledescription: Redirects requests from /site/* to /*
+    urlrewriter:rulefrom: /site/**
+    urlrewriter:ruleto: /$1
+    urlrewriter:ruletype: permanent-redirect
+  /site-to-root[2]:
+    hippo:availability:
+    - preview
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-13T13:17:03.330Z
+    hippostdpubwf:lastModificationDate: 2020-03-13T13:17:19.851Z
+    hippostdpubwf:lastModifiedBy: admin
+    jcr:mixinTypes:
+    - mix:referenceable
+    - mix:versionable
+    jcr:primaryType: urlrewriter:rule
+    urlrewriter:ruledescription: Redirects requests from /site/* to /*
+    urlrewriter:rulefrom: /site/**
+    urlrewriter:ruleto: /$1
+    urlrewriter:ruletype: permanent-redirect
+  /site-to-root[3]:
+    hippo:availability:
+    - live
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-03-13T13:17:03.330Z
+    hippostdpubwf:lastModificationDate: 2020-03-13T13:17:19.851Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-03-13T13:17:22.608Z
+    jcr:mixinTypes:
+    - mix:referenceable
+    jcr:primaryType: urlrewriter:rule
+    urlrewriter:ruledescription: Redirects requests from /site/* to /*
+    urlrewriter:rulefrom: /site/**
+    urlrewriter:ruleto: /$1
+    urlrewriter:ruletype: permanent-redirect
+  hippo:name: Site to root
+  hippo:versionHistory: 06bc8e08-d85a-4732-922b-302885480ed7
+  jcr:mixinTypes:
+  - hippo:named
+  - hippo:versionInfo
+  - mix:referenceable
+  jcr:primaryType: hippo:handle
