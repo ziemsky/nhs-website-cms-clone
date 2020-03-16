@@ -222,7 +222,7 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /website:bannercontrol:
+          /website:bannercontrols:
             /website:icon:
               hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               hippo:facets: []
