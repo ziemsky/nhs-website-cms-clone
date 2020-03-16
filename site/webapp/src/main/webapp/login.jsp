@@ -14,7 +14,9 @@
 <h1>Log In</h1>
 <hr />
 
-You can use your username/password on Hippo CMS for instance.
+<h3>This is a local development only page.</h3>
+<p>This page should never be shown in any other environment.</p>
+<p>You can use your username/password on Hippo CMS for instance.</p>
 <br /><br />
 
 <form action="<hst:link path='/'/>login" method="post">
