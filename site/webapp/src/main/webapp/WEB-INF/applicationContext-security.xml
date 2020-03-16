@@ -87,14 +87,14 @@
 
     <!-- Central storage of cryptographic keys -->
     <beans:bean id="keyManager" class="org.springframework.security.saml.key.JKSKeyManager">
-        <beans:constructor-arg value="classpath:security/samlKeystore.jks"/>
-        <beans:constructor-arg type="java.lang.String" value="nalle123"/>
+        <beans:constructor-arg value="classpath:security/adfsKeystore.jks"/>
+        <beans:constructor-arg type="java.lang.String" value="changeit"/>
         <beans:constructor-arg>
             <beans:map>
-                <beans:entry key="apollo" value="nalle123"/>
+                <beans:entry key="hippoprivatekey" value="P@55word"/>
             </beans:map>
         </beans:constructor-arg>
-        <beans:constructor-arg type="java.lang.String" value="apollo"/>
+        <beans:constructor-arg type="java.lang.String" value="hippoprivatekey"/>
     </beans:bean>
 
     <!-- Entry point to initialize authentication, default values taken from properties file -->
@@ -132,14 +132,24 @@
     <beans:bean id="metadata" class="org.springframework.security.saml.metadata.CachingMetadataManager">
         <beans:constructor-arg>
             <beans:list>
-                <beans:bean class="org.opensaml.saml2.metadata.provider.HTTPMetadataProvider">
+                <beans:bean class="org.springframework.security.saml.metadata.ExtendedMetadataDelegate">
                     <beans:constructor-arg>
-                        <beans:value type="java.lang.String">https://idp.ssocircle.com/idp-meta.xml</beans:value>
+                        <beans:bean class="org.opensaml.saml2.metadata.provider.ResourceBackedMetadataProvider">
+                            <beans:constructor-arg>
+                                <beans:bean class="java.util.Timer"/>
+                            </beans:constructor-arg>
+                            <beans:constructor-arg>
+                                <beans:bean class="org.opensaml.util.resource.ClasspathResource">
+                                    <beans:constructor-arg value="/security/metadata/FederationMetadata.xml"/>
+                                </beans:bean>
+                            </beans:constructor-arg>
+                            <beans:property name="parserPool" ref="parserPool"/>
+                        </beans:bean>
                     </beans:constructor-arg>
                     <beans:constructor-arg>
-                        <beans:value type="int">5000</beans:value>
+                        <beans:bean class="org.springframework.security.saml.metadata.ExtendedMetadata"/>
                     </beans:constructor-arg>
-                    <beans:property name="parserPool" ref="parserPool"/>
+                    <beans:property name="metadataTrustCheck" value="false"/>
                 </beans:bean>
             </beans:list>
         </beans:constructor-arg>
