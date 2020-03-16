@@ -75,13 +75,13 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Sections
-            compoundList: website:section,website:emphasisBox,website:download,website:expander,website:quote,website:checklist,website:infographic,website:iconlist
+            compoundList: website:section,publicationsystem:chartSection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist
             contentPickerType: links
             field: sections
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
+            wicket.id: ${cluster.id}.left.item
           /dateofpublication:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -91,14 +91,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.right.item
-          /section_:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Section
-            field: section
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
           /contactdetails:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -157,21 +149,14 @@ definitions:
             hipposysedit:validators:
             - required
             jcr:primaryType: hipposysedit:field
-          /section:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: website:sections
-            hipposysedit:primary: false
-            hipposysedit:type: website:section
-            jcr:primaryType: hipposysedit:field
           /sections:
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: true
-            hipposysedit:path: website:section
-            hipposysedit:primary: false
-            hipposysedit:type: website:section
+            hipposysedit:path: website:sections
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators:
+            - contentblocks-validator
             jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
