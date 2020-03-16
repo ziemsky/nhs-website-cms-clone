@@ -109,7 +109,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /bannercontrol:
+          /bannercontrols:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
             caption: Banner control - web team only
@@ -125,7 +125,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:bannercontrol
+            hipposysedit:path: website:bannercontrols
             hipposysedit:primary: false
             hipposysedit:type: website:bannercontrol
             jcr:primaryType: hipposysedit:field
