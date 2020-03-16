@@ -55,12 +55,6 @@
         <authentication-provider ref="hippoAuthenticationProvider" />
     </authentication-manager>
 
-    <beans:bean id="userDetailsServiceStub" class="uk.nhs.digital.website.security.stubs.SamlUserDetailsServiceStub" />
-
-    <beans:bean id="authenticationProviderStub" class="uk.nhs.digital.website.security.stubs.SamlAuthenticationProviderStub">
-        <beans:property name="userDetails" ref="userDetailsServiceStub" />
-    </beans:bean>
-
     <beans:bean id="hippoAuthenticationProvider"
                 class="org.onehippo.forge.security.support.springsecurity.authentication.HippoAuthenticationProvider">
     </beans:bean>
