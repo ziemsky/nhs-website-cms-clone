@@ -13,7 +13,6 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-import uk.nhs.digital.ps.beans.HippoBeanHelper;
 
 import java.util.Calendar;
 import java.util.List;
@@ -27,14 +26,9 @@ public class HubNewsAndEvents extends CommonFieldsBean {
         return getProperty("website:publicationdate");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:links")
-    public List<HippoBean> getLinks() {
-        return getChildBeansByName("website:links");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:socialmedias")
-    public SocialMedia getSocialmedias() {
-        return getBean("website:socialmedias", SocialMedia.class);
+    @HippoEssentialsGenerated(internalName = "website:socialmedia")
+    public SocialMedia getSocialmedia() {
+        return getBean("website:socialmedia", SocialMedia.class);
     }
 
     @HippoEssentialsGenerated(internalName = "website:sections")
@@ -45,25 +39,6 @@ public class HubNewsAndEvents extends CommonFieldsBean {
     @HippoEssentialsGenerated(internalName = "website:contactdetails")
     public HippoHtml getContactDetails() {
         return getHippoHtml("website:contactdetails");
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:gossid")
-    public Long getGossid() {
-        return getProperty("website:gossid");
-    }
-
-    @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
-    public String[] getKeys() {
-        return getProperty("hippotaxonomy:keys");
-    }
-
-    public List<String> getFullTaxonomyList() {
-        return HippoBeanHelper.getFullTaxonomyList(this);
-    }
-
-    @HippoEssentialsGenerated(internalName = "website:friendlyurls")
-    public Friendlyurls getFriendlyurls() {
-        return getBean("website:friendlyurls", Friendlyurls.class);
     }
 
     public List<HippoBean> getNewsData() throws HstComponentException, QueryException {
@@ -83,7 +58,7 @@ public class HubNewsAndEvents extends CommonFieldsBean {
         HstQuery hstBlogQuery = HstQueryBuilder.create(scope)
             .ofTypes(Blog.class)
             .limit(numberofBlogsElements).orderByDescending(
-                "website:dateofpublication")
+                    "website:dateofpublication")
             .build();
 
         HstQueryResult blogResult = hstBlogQuery.execute();

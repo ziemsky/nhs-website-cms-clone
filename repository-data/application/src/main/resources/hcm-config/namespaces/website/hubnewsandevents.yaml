@@ -71,11 +71,31 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /imagelink:
+          /sections:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Links
-            field: imagelink
+            caption: Sections
+            compoundList: website:section,website:emphasisBox,website:download,website:expander,website:quote,website:checklist,website:infographic,website:iconlist
+            contentPickerType: links
+            field: sections
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /dateofpublication:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Published date
+            field: dateofpublication
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.right.item
+          /section_:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Section
+            field: section
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
@@ -88,48 +108,11 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /socialmedias:
+          /socialmedia:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Social Media
+            caption: socialmedia
             field: socialmedia
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /sections:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Sections
-            compoundList: website:section,publicationsystem:chartSection,publicationsystem:mapSection,website:emphasisBox,website:iconlist,website:gallerysection,website:code,website:download,website:expander,website:ctabutton,website:quote,website:infographic,website:checklist
-            contentPickerType: links
-            field: sections
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /classifiable:
-            /cluster.options:
-              caption: Keys
-              jcr:primaryType: frontend:pluginconfig
-              taxonomy.name: publication_taxonomy
-            essentials-taxonomy-name: publication_taxonomy
-            jcr:primaryType: frontend:plugin
-            mixin: hippotaxonomy:classifiable
-            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
-            wicket.id: ${cluster.id}.left.item
-          /gossarticleid:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: GOSS Article ID
-            field: gossarticleid
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.left.item
-          /friendlyurls:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: friendlyurls
-            field: friendlyurls
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -143,14 +126,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.left.item
-          /publicationdate:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Publication Date
-            field: publicationdate
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.right.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -169,46 +144,34 @@ definitions:
             hipposysedit:path: website:contactdetails
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
-          /friendlyurls:
+          /dateofpublication:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:friendlyurls
+            hipposysedit:path: website:dateofpublication
             hipposysedit:primary: false
-            hipposysedit:type: website:friendlyurls
+            hipposysedit:type: Date
+            hipposysedit:validators:
+            - required
             jcr:primaryType: hipposysedit:field
-          /gossarticleid:
+          /section:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
+            hipposysedit:multiple: true
             hipposysedit:ordered: false
-            hipposysedit:path: website:gossarticleid
+            hipposysedit:path: website:sections
             hipposysedit:primary: false
-            hipposysedit:type: String
-            jcr:primaryType: hipposysedit:field
-          /imagelink:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:imagelink
-            hipposysedit:primary: false
-            hipposysedit:type: hippogallerypicker:imagelink
-            jcr:primaryType: hipposysedit:field
-          /publicationdate:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:publicationdate
-            hipposysedit:primary: false
-            hipposysedit:type: CalendarDate
+            hipposysedit:type: website:section
             jcr:primaryType: hipposysedit:field
           /sections:
+            hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: true
-            hipposysedit:path: website:sections
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
+            hipposysedit:path: website:section
+            hipposysedit:primary: false
+            hipposysedit:type: website:section
             jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
@@ -233,7 +196,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:socialmedias
+            hipposysedit:path: website:socialmedia
             hipposysedit:primary: false
             hipposysedit:type: website:socialmedia
             jcr:primaryType: hipposysedit:field
@@ -289,19 +252,10 @@ definitions:
           /website:contactdetails:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          /website:friendlyurls:
-            jcr:primaryType: website:friendlyurls
-            website:alternativeurls: []
-          /website:imagelink:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
           /website:seosummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          /website:socialmedias:
+          /website:socialmedia:
             /website:twitterhashtags:
               hippostd:content: ''
               jcr:primaryType: hippostd:html
@@ -325,8 +279,7 @@ definitions:
           jcr:mixinTypes:
           - mix:referenceable
           jcr:primaryType: website:hubnewsandevents
-          website:gossarticleid: ''
-          website:publicationdate: 0001-01-01T12:00:00Z
+          website:dateofpublication: 0001-01-01T12:00:00Z
           website:shortsummary: ''
           website:title: ''
         jcr:primaryType: hipposysedit:prototypeset
