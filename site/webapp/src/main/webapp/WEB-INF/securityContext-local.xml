@@ -44,7 +44,7 @@
         <intercept-url pattern="/intranet/**" access="isAuthenticated()" />
 
         <form-login login-page="/login.jsp"
-                    default-target-url="/"
+                    default-target-url="/intranet"
                     always-use-default-target="true" />
 
         <logout invalidate-session="true" logout-success-url="/" logout-url="/saml/logout" />
