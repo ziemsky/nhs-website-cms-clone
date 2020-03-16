@@ -2,6 +2,9 @@
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:sitemap:
+      /error:
+        hst:componentconfigurationid: hst:pages/error
+        jcr:primaryType: hst:sitemapitem
       /root:
         hst:componentconfigurationid: hst:pages/home
         hst:refId: root

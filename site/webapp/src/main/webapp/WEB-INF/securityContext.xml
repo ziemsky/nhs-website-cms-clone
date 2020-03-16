@@ -37,6 +37,7 @@
             <frame-options policy="SAMEORIGIN"/>
         </headers>
 
+        <intercept-url pattern="/intranet/error" access="permitAll()()"/>
         <intercept-url pattern="/intranet/**" access="isAuthenticated()"/>
         <custom-filter before="FIRST" ref="metadataGeneratorFilter"/>
         <custom-filter after="BASIC_AUTH_FILTER" ref="samlFilter"/>
@@ -64,7 +65,7 @@
     <beans:bean id="failureRedirectHandler"
           class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
         <beans:property name="useForward" value="true"/>
-        <beans:property name="defaultFailureUrl" value="/jsp/errorpages/ErrorPage401.jsp"/>
+        <beans:property name="defaultFailureUrl" value="/intranet/error"/>
     </beans:bean>
 
     <!-- Handler for successful logout -->
