@@ -1,0 +1,14 @@
+---
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/Cyber-and-data-security-homepage:
+      /main:
+        hst:componentclassname: uk.nhs.digital.common.components.DscHomeComponent
+        hst:parameternames:
+        - alertPageSize
+        hst:parametervalues:
+        - '3'
+        hst:template: Cyber-and-data-security-homepage
+        jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/apppage
+      jcr:primaryType: hst:component

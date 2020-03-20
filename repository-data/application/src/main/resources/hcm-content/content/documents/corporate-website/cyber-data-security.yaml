@@ -1,0 +1,13 @@
+---
+/content/documents/corporate-website/cyber-data-security:
+  hippo:name: Cyber and data security
+  hippostd:foldertype:
+  - new-translated-folder
+  - new-document
+  hippotranslation:id: 37029bac-5570-4b7f-9ba9-a48438fbeef3
+  hippotranslation:locale: en
+  jcr:mixinTypes:
+  - hippo:named
+  - hippotranslation:translated
+  - mix:versionable
+  jcr:primaryType: hippostd:folder
