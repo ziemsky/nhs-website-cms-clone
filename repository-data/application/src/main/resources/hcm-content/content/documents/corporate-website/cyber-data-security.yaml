@@ -1,4 +1,4 @@
-/content/documents/corporate-website/cyber-data-security:
+/content/documents/corporate-website/cyber-and-data-security:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
   jcr:uuid: 48cb96e6-aaed-456d-a75f-9f4ae25442e9
