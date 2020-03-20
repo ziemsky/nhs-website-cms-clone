@@ -254,6 +254,12 @@ definitions:
       /static-ui-news-hub:
         hst:renderpath: webfile:/freemarker/common/static-ui/news-hub-page.ftl
         jcr:primaryType: hst:template
+      /static-ui-cyber-data-security-homepage:
+        hst:renderpath: webfile:/freesmarker/common/static-ui/cyber-data-security-homepage.ftl
+        jcr:primaryType: hst:template
+      /cyber-data-security-homepage:
+        hst:renderpath: webfile:/freemarker/common/cyber-data-security-homepage.ftl
+        jcr:primaryType: hst:template
       /supplementary-information-hub-article:
         hst:renderpath: webfile:/freemarker/common/supplementary-information-hub-article.ftl
         jcr:primaryType: hst:template

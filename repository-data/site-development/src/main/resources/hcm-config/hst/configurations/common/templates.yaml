@@ -34,3 +34,6 @@ definitions:
     /hst:hst/hst:configurations/common/hst:templates/static-ui-supplementary-info-hub:
       hst:renderpath: webfile:/freemarker/common/static-ui/supplementary-info-hub-page.ftl
       jcr:primaryType: hst:template
+    /hst:hst/hst:configurations/common/hst:templates/static-ui-cyber-data-security-homepage:
+      hst:renderpath: webfile:/freesmarker/common/static-ui/cyber-data-security-homepage.ftl
+      jcr:primaryType: hst:template
