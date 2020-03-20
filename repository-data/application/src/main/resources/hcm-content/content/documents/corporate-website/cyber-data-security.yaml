@@ -1,379 +1,375 @@
----
 /content/documents/corporate-website/cyber-data-security:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 48cb96e6-aaed-456d-a75f-9f4ae25442e9
+  hippo:name: Cyber and data security
+  hippostd:foldertype: [new-translated-folder, new-document]
+  hippotranslation:id: 37029bac-5570-4b7f-9ba9-a48438fbeef3
+  hippotranslation:locale: en
   /content:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: da0cd05b-c0b0-4462-b71c-2c6a525a52f3
+    hippo:name: Cyber Security Data homepage
+    hippo:versionHistory: a34c7cb7-e63a-4232-b3e8-78aa7f1bbe14
     /content[1]:
-      /website:bannercontrol:
-        /website:icon:
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
-        jcr:primaryType: website:bannercontrol
-        website:backgroundcolor: ''
-        website:fontcolor: ''
-        website:icon: Bullet
-        website:iconcolor: ''
-      /website:bannerimagelink:
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
-      /website:homepagesections:
-        /website:link:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        jcr:primaryType: website:homepagesections
-        website:categorycontent: <p>Get peer-to-peer support and information by joining
-          out Cyber Associates Network (CAN)</p>
-        website:categorylabel: Join the network
-        website:categorytitle: Join our cyber security network
-      /website:seoSummary:
-        hippostd:content: We help NHS organisation to manage and improve their cyber
-          security
-        jcr:primaryType: hippostd:html
-      /website:usedservicesexternallink:
-        /website:nonmandatoryexternallinkbase:
-          jcr:primaryType: website:nonmandatoryexternallinkbase
-          website:link: ''
-        /website:nonmandatoryexternallinkbase_:
-          jcr:primaryType: website:nonmandatoryexternallinkbase
-          website:link: ''
-        jcr:primaryType: website:resourceexternallink
-        website:string: ''
-        website:string_: Policies and knowkedge
-      /website:usedservicesinternallink[1]:
-        /website:link:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:nonmandatoryinternallink:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:nonmandatoryinternallink
-        /website:nonmandatoryinternallink_:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:nonmandatoryinternallink
-        /website:usedservicespagelink:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:usefulinformationlink:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        jcr:primaryType: website:resourcelink
-        website:string: Cyber security support model
-        website:usedexternalservic: Secure boundary service
-        website:usedservices: ''
-        website:usefulinformation: ''
-        website:usefulservices: ''
-      /website:usedservicesinternallink[2]:
-        /website:nonmandatoryinternallink:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:nonmandatoryinternallink
-        /website:nonmandatoryinternallink_:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:nonmandatoryinternallink
-        jcr:primaryType: website:resourcelink
-        website:string: Risk framework workshop
-        website:usedexternalservic: Specialist training for SIROs
-        website:usefulinformation: ''
-      /website:usedservicesinternallink[3]:
-        /website:nonmandatoryinternallink:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:nonmandatoryinternallink
-        /website:nonmandatoryinternallink_:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:nonmandatoryinternallink
-        jcr:primaryType: website:resourcelink
-        website:string: ''
-        website:usedexternalservic: GCHQ-certified board training
+      jcr:primaryType: website:dschomepage
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 917f6c08-3a5c-492b-9afa-f38148a8aa0f
       common:searchable: true
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-03-20T13:25:31.710Z
-      hippostdpubwf:lastModificationDate: 2020-03-20T16:42:42.936Z
+      hippostdpubwf:lastModificationDate: 2020-03-20T17:11:05.351Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: c38ab076-09fc-46ea-8945-f78baf3cb8bc
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: website:dschomepage
+      website:summary: We help NHS organisation to manage and improve their cyber
+        security
       website:title: Cyber and data security
-    /content[2]:
       /website:bannercontrol:
-        /website:icon:
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
         jcr:primaryType: website:bannercontrol
         website:backgroundcolor: ''
         website:fontcolor: ''
         website:icon: Bullet
         website:iconcolor: ''
+        /website:icon:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
       /website:bannerimagelink:
+        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
       /website:homepagesections:
-        /website:link:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
         jcr:primaryType: website:homepagesections
         website:categorycontent: <p>Get peer-to-peer support and information by joining
           out Cyber Associates Network (CAN)</p>
         website:categorylabel: Join the network
         website:categorytitle: Join our cyber security network
+        /website:link:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /website:seoSummary:
+        jcr:primaryType: hippostd:html
         hippostd:content: We help NHS organisation to manage and improve their cyber
           security
-        jcr:primaryType: hippostd:html
       /website:usedservicesexternallink:
+        jcr:primaryType: website:resourceexternallink
+        website:string: ''
+        website:string_: Policies and knowkedge
         /website:nonmandatoryexternallinkbase:
           jcr:primaryType: website:nonmandatoryexternallinkbase
           website:link: ''
         /website:nonmandatoryexternallinkbase_:
           jcr:primaryType: website:nonmandatoryexternallinkbase
           website:link: ''
-        jcr:primaryType: website:resourceexternallink
-        website:string: ''
-        website:string_: Policies and knowkedge
       /website:usedservicesinternallink[1]:
-        /website:link:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:nonmandatoryinternallink:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:nonmandatoryinternallink
-        /website:nonmandatoryinternallink_:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:nonmandatoryinternallink
-        /website:usedservicespagelink:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:usefulinformationlink:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
         jcr:primaryType: website:resourcelink
         website:string: Cyber security support model
         website:usedexternalservic: Secure boundary service
         website:usedservices: ''
         website:usefulinformation: ''
         website:usefulservices: ''
-      /website:usedservicesinternallink[2]:
+        /website:link:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         /website:nonmandatoryinternallink:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         /website:nonmandatoryinternallink_:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /website:usedservicespagelink:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /website:usefulinformationlink:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /website:usedservicesinternallink[2]:
         jcr:primaryType: website:resourcelink
         website:string: Risk framework workshop
         website:usedexternalservic: Specialist training for SIROs
         website:usefulinformation: ''
-      /website:usedservicesinternallink[3]:
         /website:nonmandatoryinternallink:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         /website:nonmandatoryinternallink_:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /website:usedservicesinternallink[3]:
         jcr:primaryType: website:resourcelink
         website:string: ''
         website:usedexternalservic: GCHQ-certified board training
+        /website:nonmandatoryinternallink:
+          jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /website:nonmandatoryinternallink_:
+          jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /content[2]:
+      jcr:primaryType: website:dschomepage
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 29516457-59f8-4407-b64c-e60201863f7b
       common:searchable: true
-      hippo:availability:
-      - preview
+      hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-03-20T13:25:31.710Z
-      hippostdpubwf:lastModificationDate: 2020-03-20T16:42:39.056Z
+      hippostdpubwf:lastModificationDate: 2020-03-20T17:12:24.320Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: c38ab076-09fc-46ea-8945-f78baf3cb8bc
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      - mix:versionable
-      jcr:primaryType: website:dschomepage
+      website:summary: We help NHS organisation to manage and improve their cyber
+        security
       website:title: Cyber and data security
-    /content[3]:
       /website:bannercontrol:
-        /website:icon:
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-          jcr:primaryType: hippogallerypicker:imagelink
         jcr:primaryType: website:bannercontrol
         website:backgroundcolor: ''
         website:fontcolor: ''
         website:icon: Bullet
         website:iconcolor: ''
+        /website:icon:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
       /website:bannerimagelink:
+        jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-        jcr:primaryType: hippogallerypicker:imagelink
       /website:homepagesections:
-        /website:link:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
         jcr:primaryType: website:homepagesections
         website:categorycontent: <p>Get peer-to-peer support and information by joining
           out Cyber Associates Network (CAN)</p>
         website:categorylabel: Join the network
         website:categorytitle: Join our cyber security network
+        /website:link:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /website:seoSummary:
+        jcr:primaryType: hippostd:html
         hippostd:content: We help NHS organisation to manage and improve their cyber
           security
-        jcr:primaryType: hippostd:html
       /website:usedservicesexternallink:
+        jcr:primaryType: website:resourceexternallink
+        website:string: ''
+        website:string_: Policies and knowkedge
         /website:nonmandatoryexternallinkbase:
           jcr:primaryType: website:nonmandatoryexternallinkbase
           website:link: ''
         /website:nonmandatoryexternallinkbase_:
           jcr:primaryType: website:nonmandatoryexternallinkbase
           website:link: ''
-        jcr:primaryType: website:resourceexternallink
-        website:string: ''
-        website:string_: Policies and knowkedge
       /website:usedservicesinternallink[1]:
-        /website:link:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:nonmandatoryinternallink:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:nonmandatoryinternallink
-        /website:nonmandatoryinternallink_:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:nonmandatoryinternallink
-        /website:usedservicespagelink:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
-        /website:usefulinformationlink:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
-          jcr:primaryType: website:internallink
         jcr:primaryType: website:resourcelink
         website:string: Cyber security support model
         website:usedexternalservic: Secure boundary service
         website:usedservices: ''
         website:usefulinformation: ''
         website:usefulservices: ''
-      /website:usedservicesinternallink[2]:
+        /website:link:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         /website:nonmandatoryinternallink:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         /website:nonmandatoryinternallink_:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /website:usedservicespagelink:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /website:usefulinformationlink:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /website:usedservicesinternallink[2]:
         jcr:primaryType: website:resourcelink
         website:string: Risk framework workshop
         website:usedexternalservic: Specialist training for SIROs
         website:usefulinformation: ''
-      /website:usedservicesinternallink[3]:
         /website:nonmandatoryinternallink:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         /website:nonmandatoryinternallink_:
-          /website:link:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            jcr:primaryType: hippo:mirror
           jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /website:usedservicesinternallink[3]:
         jcr:primaryType: website:resourcelink
         website:string: ''
         website:usedexternalservic: GCHQ-certified board training
+        /website:nonmandatoryinternallink:
+          jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /website:nonmandatoryinternallink_:
+          jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /content[3]:
+      jcr:primaryType: website:dschomepage
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 38fbd824-75d3-4cc4-86f8-e2cc99bf1242
       common:searchable: true
-      hippo:availability:
-      - live
+      hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-03-20T13:25:31.710Z
-      hippostdpubwf:lastModificationDate: 2020-03-20T16:42:39.056Z
+      hippostdpubwf:lastModificationDate: 2020-03-20T17:12:24.320Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2020-03-20T16:42:51.668Z
+      hippostdpubwf:publicationDate: 2020-03-20T17:12:27.694Z
       hippotranslation:id: c38ab076-09fc-46ea-8945-f78baf3cb8bc
       hippotranslation:locale: en
-      jcr:mixinTypes:
-      - mix:referenceable
-      jcr:primaryType: website:dschomepage
+      website:summary: We help NHS organisation to manage and improve their cyber
+        security
       website:title: Cyber and data security
-    hippo:name: Cyber Security Data homepage
-    hippo:versionHistory: a34c7cb7-e63a-4232-b3e8-78aa7f1bbe14
-    jcr:mixinTypes:
-    - hippo:named
-    - hippo:versionInfo
-    - mix:referenceable
-    jcr:primaryType: hippo:handle
-  hippo:name: Cyber and data security
-  hippostd:foldertype:
-  - new-translated-folder
-  - new-document
-  hippotranslation:id: 37029bac-5570-4b7f-9ba9-a48438fbeef3
-  hippotranslation:locale: en
-  jcr:mixinTypes:
-  - hippo:named
-  - hippotranslation:translated
-  - mix:versionable
-  jcr:primaryType: hippostd:folder
+      /website:bannercontrol:
+        jcr:primaryType: website:bannercontrol
+        website:backgroundcolor: ''
+        website:fontcolor: ''
+        website:icon: Bullet
+        website:iconcolor: ''
+        /website:icon:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /website:bannerimagelink:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /website:homepagesections:
+        jcr:primaryType: website:homepagesections
+        website:categorycontent: <p>Get peer-to-peer support and information by joining
+          out Cyber Associates Network (CAN)</p>
+        website:categorylabel: Join the network
+        website:categorytitle: Join our cyber security network
+        /website:link:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /website:seoSummary:
+        jcr:primaryType: hippostd:html
+        hippostd:content: We help NHS organisation to manage and improve their cyber
+          security
+      /website:usedservicesexternallink:
+        jcr:primaryType: website:resourceexternallink
+        website:string: ''
+        website:string_: Policies and knowkedge
+        /website:nonmandatoryexternallinkbase:
+          jcr:primaryType: website:nonmandatoryexternallinkbase
+          website:link: ''
+        /website:nonmandatoryexternallinkbase_:
+          jcr:primaryType: website:nonmandatoryexternallinkbase
+          website:link: ''
+      /website:usedservicesinternallink[1]:
+        jcr:primaryType: website:resourcelink
+        website:string: Cyber security support model
+        website:usedexternalservic: Secure boundary service
+        website:usedservices: ''
+        website:usefulinformation: ''
+        website:usefulservices: ''
+        /website:link:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /website:nonmandatoryinternallink:
+          jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /website:nonmandatoryinternallink_:
+          jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /website:usedservicespagelink:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /website:usefulinformationlink:
+          jcr:primaryType: website:internallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /website:usedservicesinternallink[2]:
+        jcr:primaryType: website:resourcelink
+        website:string: Risk framework workshop
+        website:usedexternalservic: Specialist training for SIROs
+        website:usefulinformation: ''
+        /website:nonmandatoryinternallink:
+          jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /website:nonmandatoryinternallink_:
+          jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /website:usedservicesinternallink[3]:
+        jcr:primaryType: website:resourcelink
+        website:string: ''
+        website:usedexternalservic: GCHQ-certified board training
+        /website:nonmandatoryinternallink:
+          jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /website:nonmandatoryinternallink_:
+          jcr:primaryType: website:nonmandatoryinternallink
+          /website:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe

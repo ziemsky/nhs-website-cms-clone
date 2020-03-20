@@ -1,88 +1,99 @@
----
 definitions:
   config:
     /hippo:namespaces/website/dschomepage:
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:primaryType: hipposysedit:templatetype
       /editor:templates:
+        jcr:primaryType: editor:templateset
         /_default_:
           jcr:primaryType: frontend:plugincluster
-          frontend:properties:
-          - mode
-          frontend:references:
-          - wicket.model
-          - model.compareTo
-          - engine
-          - validator.id
-          frontend:services:
-          - wicket.id
-          - validator.id
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
           /root:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /title:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
             caption: Title
             field: title
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /seoSummary:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /summary:
+            jcr:primaryType: frontend:plugin
+            caption: Summary
+            field: summary
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /seoSummary:
             caption: seoSummary
             field: seoSummary
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /bannerimagelink:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /bannerimagelink:
             caption: Link to Banner image
             field: bannerimagelink
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /usedservicesinternallink:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /usedservicesinternallink:
             caption: Most used services - internal links
             field: resourcelink
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /usedservicesexternallink:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /usedservicesexternallink:
             caption: Most used services - external links
             field: usedservicesexternallink
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /homepagesections:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /homepagesections:
             caption: DSC homepage categories
             field: homepagesections_
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /bannercontrol:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /bannercontrol:
             caption: Banner control - web team only
             field: bannercontrol
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-        jcr:primaryType: editor:templateset
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
       /hipposysedit:nodetype:
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:primaryType: hippo:handle
+        jcr:uuid: ced1aea0-f63b-407b-b71b-a32fdc1b8dc0
         /hipposysedit:nodetype:
+          hipposysedit:node: true
+          hipposysedit:supertype: ['website:basedocument', 'hippostd:relaxed', 'hippotranslation:translated']
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:uuid: a59a50c3-5c39-4724-a328-f556e1698284
           /bannercontrol:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -101,8 +112,8 @@ definitions:
             jcr:primaryType: hipposysedit:field
           /homepagesections_:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
             hipposysedit:path: website:homepagesections
             hipposysedit:primary: false
             hipposysedit:type: website:homepagesections
@@ -133,100 +144,23 @@ definitions:
             jcr:primaryType: hipposysedit:field
           /usedservicesexternallink:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
+            hipposysedit:multiple: true
             hipposysedit:ordered: false
             hipposysedit:path: website:usedservicesexternallink
             hipposysedit:primary: false
             hipposysedit:type: website:resourceexternallink
             jcr:primaryType: hipposysedit:field
-          hipposysedit:node: true
-          hipposysedit:supertype:
-          - website:basedocument
-          - hippostd:relaxed
-          - hippotranslation:translated
-          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
-          jcr:mixinTypes:
-          - mix:referenceable
-          - hipposysedit:remodel
-          jcr:primaryType: hipposysedit:nodetype
-        jcr:mixinTypes:
-        - mix:referenceable
-        jcr:primaryType: hippo:handle
+          /summary:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:summary
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          /website:bannercontrol:
-            /website:icon:
-              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
-              jcr:primaryType: hippogallerypicker:imagelink
-            jcr:primaryType: website:bannercontrol
-            website:backgroundcolor: ''
-            website:fontcolor: ''
-            website:icon: Bullet
-            website:iconcolor: ''
-          /website:bannerimagelink:
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-            jcr:primaryType: hippogallerypicker:imagelink
-          /website:homepagesections:
-            /website:link:
-              /website:link:
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                jcr:primaryType: hippo:mirror
-              jcr:primaryType: website:internallink
-            jcr:primaryType: website:homepagesections
-            website:categorycontent: ''
-            website:categorylabel: ''
-            website:categorytitle: ''
-          /website:seoSummary:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          /website:usedservicesexternallink:
-            /website:nonmandatoryexternallinkbase:
-              jcr:primaryType: website:nonmandatoryexternallinkbase
-              website:link: ''
-            /website:nonmandatoryexternallinkbase_:
-              jcr:primaryType: website:nonmandatoryexternallinkbase
-              website:link: ''
-            jcr:primaryType: website:resourceexternallink
-            website:string: ''
-            website:string_: ''
-          /website:usedservicesinternallink:
-            /website:link:
-              /website:link:
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                jcr:primaryType: hippo:mirror
-              jcr:primaryType: website:internallink
-            /website:nonmandatoryinternallink:
-              /website:link:
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                jcr:primaryType: hippo:mirror
-              jcr:primaryType: website:nonmandatoryinternallink
-            /website:nonmandatoryinternallink_:
-              /website:link:
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                jcr:primaryType: hippo:mirror
-              jcr:primaryType: website:nonmandatoryinternallink
-            /website:usedservicespagelink:
-              /website:link:
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                jcr:primaryType: hippo:mirror
-              jcr:primaryType: website:internallink
-            /website:usefulinformationlink:
-              /website:link:
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                jcr:primaryType: hippo:mirror
-              jcr:primaryType: website:internallink
-            jcr:primaryType: website:resourcelink
-            website:string: ''
-            website:usedexternalservic: ''
-            website:usedservices: ''
-            website:usefulinformation: ''
-            website:usefulservices: ''
           common:searchable: true
           hippostd:holder: holder
           hippostd:state: draft
@@ -236,12 +170,81 @@ definitions:
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
-          jcr:mixinTypes:
-          - mix:referenceable
+          jcr:mixinTypes: ['mix:referenceable']
           jcr:primaryType: website:dschomepage
           website:title: ''
-        jcr:primaryType: hipposysedit:prototypeset
-      jcr:mixinTypes:
-      - editor:editable
-      - mix:referenceable
-      jcr:primaryType: hipposysedit:templatetype
+          jcr:uuid: ccef0b7a-d6d1-45a9-9502-49ccbba73083
+          website:summary: ''
+          /website:bannercontrol:
+            jcr:primaryType: website:bannercontrol
+            website:backgroundcolor: ''
+            website:fontcolor: ''
+            website:icon: Bullet
+            website:iconcolor: ''
+            /website:icon:
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+              jcr:primaryType: hippogallerypicker:imagelink
+          /website:bannerimagelink:
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+            jcr:primaryType: hippogallerypicker:imagelink
+          /website:homepagesections:
+            jcr:primaryType: website:homepagesections
+            website:categorycontent: ''
+            website:categorylabel: ''
+            website:categorytitle: ''
+            /website:link:
+              jcr:primaryType: website:internallink
+              /website:link:
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                jcr:primaryType: hippo:mirror
+          /website:seoSummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
+          /website:usedservicesexternallink:
+            jcr:primaryType: website:resourceexternallink
+            website:string: ''
+            website:string_: ''
+            /website:nonmandatoryexternallinkbase:
+              jcr:primaryType: website:nonmandatoryexternallinkbase
+              website:link: ''
+            /website:nonmandatoryexternallinkbase_:
+              jcr:primaryType: website:nonmandatoryexternallinkbase
+              website:link: ''
+          /website:usedservicesinternallink:
+            jcr:primaryType: website:resourcelink
+            website:string: ''
+            website:usedexternalservic: ''
+            website:usedservices: ''
+            website:usefulinformation: ''
+            website:usefulservices: ''
+            /website:link:
+              jcr:primaryType: website:internallink
+              /website:link:
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                jcr:primaryType: hippo:mirror
+            /website:nonmandatoryinternallink:
+              jcr:primaryType: website:nonmandatoryinternallink
+              /website:link:
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                jcr:primaryType: hippo:mirror
+            /website:nonmandatoryinternallink_:
+              jcr:primaryType: website:nonmandatoryinternallink
+              /website:link:
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                jcr:primaryType: hippo:mirror
+            /website:usedservicespagelink:
+              jcr:primaryType: website:internallink
+              /website:link:
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                jcr:primaryType: hippo:mirror
+            /website:usefulinformationlink:
+              jcr:primaryType: website:internallink
+              /website:link:
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+                jcr:primaryType: hippo:mirror
