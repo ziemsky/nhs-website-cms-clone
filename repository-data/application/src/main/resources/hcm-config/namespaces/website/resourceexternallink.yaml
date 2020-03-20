@@ -1,107 +1,117 @@
+---
 definitions:
   config:
     /hippo:namespaces/website/resourceexternallink:
-      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:primaryType: hipposysedit:templatetype
       /editor:templates:
-        jcr:primaryType: editor:templateset
         /_default_:
           jcr:primaryType: frontend:plugincluster
-          frontend:properties: [mode]
-          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
-          frontend:services: [wicket.id, validator.id]
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
           /root:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /usedexternalservice:
+          /string:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Most useful services descriptions
-            field: usedservices
-            hint: ''
+            field: string
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /nonmandatoryexternallinkbase:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/document/administration/website/most-useful-services-external-values
-          /link:
             caption: Choose your external linked page(URL)
-            field: externallinkbase
-            hint: ''
+            field: nonmandatoryexternallinkbase
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /string_:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /usefulinfo:
-            jcr:primaryType: frontend:plugin
             caption: Uselful information descriptions
-            field: usefulinfo
+            field: string_
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /nonmandatoryexternallinkbase_:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/document/administration/website/useful-information-external-values
-          /usefulinfoexternallink:
-            jcr:primaryType: frontend:plugin
             caption: Choose your external linked page(URL)
-            field: usefulinfoexternallink
+            field: nonmandatoryexternallinkbase_
+            hint: ''
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
+        jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:primaryType: hippo:handle
-        jcr:uuid: 7027b6f6-3eb7-45d4-aad0-5c3ab899a9a7
         /hipposysedit:nodetype:
+          /nonmandatoryexternallinkbase:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:nonmandatoryexternallinkbase
+            hipposysedit:primary: false
+            hipposysedit:type: website:nonmandatoryexternallinkbase
+            jcr:primaryType: hipposysedit:field
+          /nonmandatoryexternallinkbase_:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:nonmandatoryexternallinkbase_
+            hipposysedit:primary: false
+            hipposysedit:type: website:nonmandatoryexternallinkbase
+            jcr:primaryType: hipposysedit:field
+          /string:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:string
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
+          /string_:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:string_
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
-          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
+          hipposysedit:supertype:
+          - hippo:compound
+          - hippostd:relaxed
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
-          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
           jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: 7d195e52-dea9-4b00-afa6-3b34a588d474
-          /externallinkbase:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:link
-            hipposysedit:primary: false
-            hipposysedit:type: website:externallinkbase
-            jcr:primaryType: hipposysedit:field
-          /usedservices:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:usedexternalservice
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
-            jcr:primaryType: hipposysedit:field
-          /usefulinfo:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:usefulinfo
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
-          /usefulinfoexternallink:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:usefulinfoexternallink
-            hipposysedit:primary: false
-            hipposysedit:type: website:externallinkbase
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
-        jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
+          /website:nonmandatoryexternallinkbase:
+            jcr:primaryType: website:nonmandatoryexternallinkbase
+            website:link: ''
+          /website:nonmandatoryexternallinkbase_:
+            jcr:primaryType: website:nonmandatoryexternallinkbase
+            website:link: ''
           jcr:primaryType: website:resourceexternallink
-          website:usedexternalservice: ''
-          website:usefulinfo: ''
-          /website:link:
-            jcr:primaryType: website:externallinkbase
-            website:link: ''
-          /website:usefulinfoexternallink:
-            jcr:primaryType: website:externallinkbase
-            website:link: ''
+          website:string: ''
+          website:string_: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

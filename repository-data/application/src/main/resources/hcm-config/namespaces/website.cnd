@@ -223,6 +223,12 @@
 [website:news] > hippostd:relaxed, hippotranslation:translated, website:basedocument
   orderable
 
+[website:nonmandatoryexternallinkbase] > hippo:compound, hippostd:relaxed
+  orderable
+
+[website:nonmandatoryinternallink] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:notesforeditors] > hippo:compound, hippostd:relaxed
   orderable
 

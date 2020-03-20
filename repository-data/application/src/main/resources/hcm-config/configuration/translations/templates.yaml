@@ -457,6 +457,16 @@ definitions:
           jcr:name: News
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:nonmandatoryexternalbaselink:
+        /en:
+          jcr:name: Non Mandatory External link
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
+      /website:nonmandatoryinternallink:
+        /en:
+          jcr:name: Non Mandatory Internal link
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:notesforeditors:
         /en:
           jcr:name: Notes for editors
