@@ -11,7 +11,7 @@
     background-size: 2.5em;
     border-left: solid 7px #98a4ad;
     background-color: #dfe2e5;
-    
+
     @extend %component-border;
 }
 
@@ -27,4 +27,50 @@
     text-indent: 0;
     color: #425563;
     font-size: 19px;
+}
+
+.quote-box-list {
+    &--grid {
+        &-row {
+            display: inline-block;
+            width: 100%;
+
+            &:first-child {
+                margin-top: $gutter;
+                margin-bottom: -10px;
+            }
+
+            .quote-box__container {
+                width: 100%;
+                float: left;
+                padding: 10px 0;
+
+                .quote-box {
+                    margin: 0;
+                }
+
+                @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
+                    padding-right: 20px;
+
+                    &:last-child {
+                        padding-right: 0;
+                    }
+
+                    .quote-box {
+                        margin: 0;
+                    }
+                }
+            }
+
+            @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
+                &:first-child {
+                    margin-bottom: 0;
+                }
+
+                .quote-box--col-2 {
+                    width: 50%;
+                }
+            }
+        }
+    }
 }

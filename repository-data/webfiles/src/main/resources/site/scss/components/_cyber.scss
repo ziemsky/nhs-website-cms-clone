@@ -1,0 +1,37 @@
+.cyber {
+
+    &-grid-row {
+        padding-bottom: 32px;
+
+        &:not(:first-child) {
+            padding-top: 32px;
+            border-top: 1px solid #B3BBC1;
+        }
+    }
+
+    &-header {
+        display: flex;
+
+        &__group, &__cta {
+            margin: 0;
+            float: left;
+        }
+
+        &__group {
+            width: 70%;
+            padding-right: $gutter;
+        }
+
+        &__cta {
+            width: 30%;
+        }
+
+        &__title {
+            display: flex;
+        }
+
+        &__content {
+            color: $grey-1;
+        }
+    }
+}
