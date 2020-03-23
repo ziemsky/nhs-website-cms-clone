@@ -2,7 +2,9 @@
 /content/documents/intranet:
   hippo:name: Intranet
   hippostd:foldertype:
-  - new-translated-folder
+  - new-intranet-folder
+  - new-internal-news-folder
+  - new-task-folder
   hippotranslation:id: 787f7294-2691-462c-9838-d53153c30791
   hippotranslation:locale: en
   jcr:mixinTypes:

@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:configuration/hippo:queries/hippo:templates/new-intranet-document:
+    /hippo:configuration/hippo:queries/hippo:templates/new-internal-news-document:
       hippostd:icon: adddocument_ico
       hippostd:modify:
       - ./_name
@@ -22,7 +22,4 @@ definitions:
       - $holder
       jcr:language: xpath
       jcr:primaryType: hippostd:templatequery
-      jcr:statement: /jcr:root/hippo:namespaces/intranet/element(*, hipposysedit:templatetype)/hipposysedit:prototypes/hipposysedit:prototype[
-        @jcr:primaryType='intranet:task' or @jcr:primaryType='intranet:newsinternal'
-        or @jcr:primaryType='website:blog' or @jcr:primaryType='website:team' or @jcr:primaryType='website:event'
-        or @jcr:primaryType='website:location' or @jcr:primaryType='website:general']
+      jcr:statement: //element(*,hipposysedit:namespacefolder)/element(*,mix:referenceable)/element(*,hipposysedit:templatetype)/hipposysedit:prototypes/element(hipposysedit:prototype,intranet:newsinternal)

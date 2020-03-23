@@ -2,6 +2,17 @@
 definitions:
   config:
     /hst:hst/hst:configurations/intranet/hst:sitemap:
+      /news:
+        /_any_:
+          hst:componentconfigurationid: hst:pages/404
+          hst:componentconfigurationmappingnames:
+          - intranet:newsinternal
+          hst:componentconfigurationmappingvalues:
+          - hst:pages/news
+          hst:relativecontentpath: news/${1}
+          jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/404
+        jcr:primaryType: hst:sitemapitem
       /root:
         hst:componentconfigurationid: hst:pages/home
         hst:refId: root
