@@ -352,6 +352,9 @@
 [website:threatupdate] > hippo:compound, hippostd:relaxed
   orderable
 
+[website:tilesectionvisualhub] > hippo:compound, hippostd:relaxed
+  orderable
+
 [website:visualassetlink] > hippo:compound, hippostd:relaxed
   orderable
 

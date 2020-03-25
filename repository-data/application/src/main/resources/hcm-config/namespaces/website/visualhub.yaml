@@ -95,6 +95,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+          /tilesections:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Tile Section
+            field: tilesectionvisualhub
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /additionalinformation:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -192,6 +201,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
+          /tilesectionvisualhub:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:tilesections
+            hipposysedit:primary: false
+            hipposysedit:type: website:tilesectionvisualhub
+            jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -236,9 +253,18 @@ definitions:
           /website:introduction:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:seosummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:tilesections:
+            /website:sectionintroduction:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:tilesectionvisualhub
+            website:sectionheading: ''
           common:searchRank: 3
           common:searchable: true
           hippostd:holder: holder
