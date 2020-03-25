@@ -3,6 +3,7 @@ definitions:
     /hippo:namespaces/website/dschomepage:
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
       jcr:primaryType: hipposysedit:templatetype
+      jcr:uuid: de8db540-1b4f-4211-9ce1-e3d001961661
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -23,9 +24,9 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /summary:
-            jcr:primaryType: frontend:plugin
             caption: Summary
             field: summary
+            jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -47,61 +48,17 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /usedservicesinternallink:
-            caption: Most used services - internal links
-            field: resourcelink
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /usedservicesexternallink:
-            caption: Most used services - external links
-            field: usedservicesexternallink
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /homepagesections:
-            caption: DSC homepage categories
-            field: homepagesections_
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /bannercontrol:
-            caption: Banner control - web team only
-            field: bannercontrol
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
       /hipposysedit:nodetype:
         jcr:mixinTypes: ['mix:referenceable']
         jcr:primaryType: hippo:handle
-        jcr:uuid: ced1aea0-f63b-407b-b71b-a32fdc1b8dc0
+        jcr:uuid: 3ccf0274-3a37-4653-9c74-21372f467894
         /hipposysedit:nodetype:
           hipposysedit:node: true
           hipposysedit:supertype: ['website:basedocument', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
           jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: a59a50c3-5c39-4724-a328-f556e1698284
-          /bannercontrol:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:bannercontrol
-            hipposysedit:primary: false
-            hipposysedit:type: website:bannercontrol
-            jcr:primaryType: hipposysedit:field
+          jcr:uuid: b07c3773-ab98-4edc-a0dd-28a686d58373
           /bannerimagelink:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -109,22 +66,6 @@ definitions:
             hipposysedit:path: website:bannerimagelink
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
-            jcr:primaryType: hipposysedit:field
-          /homepagesections_:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:homepagesections
-            hipposysedit:primary: false
-            hipposysedit:type: website:homepagesections
-            jcr:primaryType: hipposysedit:field
-          /resourcelink:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:usedservicesinternallink
-            hipposysedit:primary: false
-            hipposysedit:type: website:resourcelink
             jcr:primaryType: hipposysedit:field
           /seoSummary:
             hipposysedit:mandatory: false
@@ -134,6 +75,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:seoSummary
             jcr:primaryType: hipposysedit:field
+          /summary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:summary
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -142,22 +91,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
-          /usedservicesexternallink:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: website:usedservicesexternallink
-            hipposysedit:primary: false
-            hipposysedit:type: website:resourceexternallink
-            jcr:primaryType: hipposysedit:field
-          /summary:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:summary
-            hipposysedit:primary: false
-            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -172,79 +105,15 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           jcr:primaryType: website:dschomepage
-          website:title: ''
-          jcr:uuid: ccef0b7a-d6d1-45a9-9502-49ccbba73083
           website:summary: ''
-          /website:bannercontrol:
-            jcr:primaryType: website:bannercontrol
-            website:backgroundcolor: ''
-            website:fontcolor: ''
-            website:icon: Bullet
-            website:iconcolor: ''
-            /website:icon:
-              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-              hippo:facets: []
-              hippo:modes: []
-              hippo:values: []
-              jcr:primaryType: hippogallerypicker:imagelink
+          website:title: ''
+          jcr:uuid: 46fe625d-5702-4305-a031-47548741c830
           /website:bannerimagelink:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
             jcr:primaryType: hippogallerypicker:imagelink
-          /website:homepagesections:
-            jcr:primaryType: website:homepagesections
-            website:categorycontent: ''
-            website:categorylabel: ''
-            website:categorytitle: ''
-            /website:link:
-              jcr:primaryType: website:internallink
-              /website:link:
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                jcr:primaryType: hippo:mirror
           /website:seoSummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          /website:usedservicesexternallink:
-            jcr:primaryType: website:resourceexternallink
-            website:string: ''
-            website:string_: ''
-            /website:nonmandatoryexternallinkbase:
-              jcr:primaryType: website:nonmandatoryexternallinkbase
-              website:link: ''
-            /website:nonmandatoryexternallinkbase_:
-              jcr:primaryType: website:nonmandatoryexternallinkbase
-              website:link: ''
-          /website:usedservicesinternallink:
-            jcr:primaryType: website:resourcelink
-            website:string: ''
-            website:usedexternalservic: ''
-            website:usedservices: ''
-            website:usefulinformation: ''
-            website:usefulservices: ''
-            /website:link:
-              jcr:primaryType: website:internallink
-              /website:link:
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                jcr:primaryType: hippo:mirror
-            /website:nonmandatoryinternallink:
-              jcr:primaryType: website:nonmandatoryinternallink
-              /website:link:
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                jcr:primaryType: hippo:mirror
-            /website:nonmandatoryinternallink_:
-              jcr:primaryType: website:nonmandatoryinternallink
-              /website:link:
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                jcr:primaryType: hippo:mirror
-            /website:usedservicespagelink:
-              jcr:primaryType: website:internallink
-              /website:link:
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                jcr:primaryType: hippo:mirror
-            /website:usefulinformationlink:
-              jcr:primaryType: website:internallink
-              /website:link:
-                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-                jcr:primaryType: hippo:mirror
