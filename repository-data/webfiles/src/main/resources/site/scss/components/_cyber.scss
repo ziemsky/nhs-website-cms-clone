@@ -33,5 +33,20 @@
         &__content {
             color: $grey-1;
         }
+
+        @include media(mobile) {
+            &, &__title {
+                display: block;
+            }
+
+            &__group, &__cta {
+                width: 100%;
+            }
+
+            &__group {
+                padding-right: 0;
+                text-align: center;
+            }
+        }
     }
 }

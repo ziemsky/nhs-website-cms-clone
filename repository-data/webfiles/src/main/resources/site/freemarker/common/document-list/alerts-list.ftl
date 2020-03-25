@@ -6,6 +6,8 @@
 <@fmt.message key="headers.alerts" var="cyberAlerts" />
 <@fmt.message key="labels.all-alerts" var="cyberAlertsBtn" />
 <@fmt.message key="url.all-alerts" var="cyberAlertsBtnUrl" />
+<@fmt.message key="labels.alert-date" var="alertsDateLabel" />
+<@fmt.message key="labels.alert-severity" var="" />
 
 
 <div class="column column--reset" id="${slugify(cyberAlerts)}">
@@ -26,11 +28,15 @@
             <div class="hub-box-list--grid-row">
                 <#list pageable.items as cyberAlert>
                     <#assign item = cyberAlert />
-                    <#assign item += {"severityLabel": cyberAlert.getSeverity(), "dateLabel": cyberAlert.getPublishedDate()} />
+
+                    <@hst.link hippobean=item var="itemLink" />
+                    <@fmt.formatDate value=item.publishedDate.time type="Date" pattern="dd/MM/yyyy" timeZone="${getTimeZone()}" var="publishedDate" />
+                    <#assign item += {"link": itemLink, "publishedDate": publishedDate} />
+
+                    <#assign item += {"severityLabel": alertsSeverityLabel, "dateLabel": alertsDateLabel} />
 
                     <#assign item += {"grid": true} />
-                    <#assign item += {"notOldStyle": true} />
-
+                    <#assign item += {"newStyle": true} />
                     <#assign item += {"colSize": pageable.items?size} />
                     <@cyberAlertBox item></@cyberAlertBox>
                 </#list>

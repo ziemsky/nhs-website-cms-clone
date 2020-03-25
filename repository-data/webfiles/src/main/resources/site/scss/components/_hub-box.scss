@@ -154,11 +154,22 @@
 
                 .hub-box__contents {
                     min-height: 130px;
+
+                    &--red {
+                        background-color: $col-critical-background;
+                    }
+
+                    &--blue {
+                        background-color: $nhs-blue;
+                    }
+
+                    &--grey {
+                        background-color: $grey-2;
+                    }
                 }
 
                 .hub-box__title {
-                    font-size: 25px;
-                    line-height: 28pt;
+                    @include core-font(26);
 
                     a {
                         color: white;
@@ -166,15 +177,16 @@
                 }
 
                 .tag {
+                    @include core-font(14);
+
                     background: transparent;
                     color: white;
                     padding: 0 20px 0 0;
                     margin: 0;
-                    font-size: 14px;
-                    line-height: 20pt;
 
                     @include media($min-width: $min-tablet-width, $ignore-for-ie: true) {
                         padding: 0;
+
                         &--right {
                             float: right;
                         }
@@ -187,18 +199,6 @@
                     &:last-child {
                         padding-right: 0;
                     }
-                }
-
-                .hub-box--red {
-                    background-color: $col-critical-background;
-                }
-
-                .hub-box--blue {
-                    background-color: $nhs-blue;
-                }
-
-                .hub-box--grey {
-                    background-color: $grey-2;
                 }
             }
 

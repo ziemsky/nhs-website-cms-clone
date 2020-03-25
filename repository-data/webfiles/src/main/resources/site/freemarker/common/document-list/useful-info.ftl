@@ -26,8 +26,11 @@
             <div class="hub-box-list--grid-row">
                 <#list pageable.items as usefulInfoData>
                     <#assign item = usefulInfoData />
+                    <@hst.link hippobean=item var="itemLink" />
+                    <#assign item += {"link": itemLink} />
+
                     <#assign item += {"grid": true} />
-                    <#assign item += {"notOldStyle": true} />
+                    <#assign item += {"newStyle": true} />
                     <#assign item += {"colSize": pageable.items?size} />
                     <@cyberAlertBox item></@cyberAlertBox>
                 </#list>

@@ -3,10 +3,10 @@
 
 <#macro cyberAlertBox options>
     <#if options??>
-        <#assign isNewStyle=(options.notOldStyle?has_content && options.notOldStyle)?then(true, false) />
+        <#assign isNewStyle=options.newStyle?has_content && options.newStyle />
 
         <#if options.severity??>
-            <#assign severityColour=(options.severity == "high")?then("red", "blue") />
+            <#assign severityColour=(options.severity?lower_case == "high")?then("red", "blue") />
         <#else>
             <#assign severityColour="grey" />
         </#if>
@@ -14,11 +14,11 @@
         <#assign severityLabel=options.severityLabel?has_content?then(options.severityLabel+":","Severity:") />
         <#assign dateLabel=options.dateLabel?has_content?then(options.dateLabel+":","Date:") />
 
-        <article class="hub-box${(isNewStyle)?then(" hub-box--cyber-alert col", "")}${options.colSize?has_content?then(" hub-box--col-${options.colSize}", "")}">
+        <article class="hub-box${(isNewStyle)?then(" hub-box--cyber-alert", "")}${options.colSize?has_content?then(" hub-box--col-${options.colSize}", "")}">
 
-            <div class="hub-box__contents${(isNewStyle)?then(" hub-box--${severityColour}", "")}">
+            <div class="hub-box__contents${(isNewStyle)?then(" hub-box__contents--${severityColour}", "")}">
 
-                <#if options.threatId??>
+                <#if options.threatId?? && !isNewStyle>
                     <span class="cta__label" data-uipath="ps.search-results.result.type">${options.threatId}</span>
                 </#if>
 
@@ -48,7 +48,7 @@
                     <#if options.severity??>
                         <li class="tag">${severityLabel} ${options.severity?cap_first}</li>
                     </#if>
-                    <#if options.threatType??>
+                    <#if options.threatType?? && !isNewStyle>
                         <li class="tag">Type: ${options.threatType?cap_first}</li>
                     </#if>
                     <#if options.publishedDate?? && isNewStyle>

@@ -65,11 +65,11 @@
     <div class="grid-wrapper">
 
         <div class="grid-row cyber-grid-row">
-            <@hst.include ref= "alerts"/>
+            <@hst.include ref="alerts"/>
         </div>
 
         <div class="grid-row cyber-grid-row">
-            <@hst.include ref= "most-used"/>
+            <@hst.include ref="most-used"/>
         </div>
 
         <div class="grid-row cyber-grid-row">
@@ -77,11 +77,11 @@
         </div>
 
         <div class="grid-row cyber-grid-row">
-            <@hst.include ref= "modules"/>
+            <@hst.include ref="modules"/>
         </div>
 
         <div class="grid-row cyber-grid-row">
-            <@hst.include ref= "case-studies"/>
+            <@hst.include ref="case-studies"/>
         </div>
 
     </div>
