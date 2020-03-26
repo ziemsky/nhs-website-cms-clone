@@ -657,6 +657,11 @@ definitions:
           jcr:name: External icon link
           jcr:primaryType: hipposys:resourcebundle
         jcr:primaryType: hipposys:resourcebundles
+      /website:fullwidthimage:
+        /en:
+          jcr:name: Full width image
+          jcr:primaryType: hipposys:resourcebundle
+        jcr:primaryType: hipposys:resourcebundles
       /website:visualhub:
         /en:
           jcr:name: Visual hub
