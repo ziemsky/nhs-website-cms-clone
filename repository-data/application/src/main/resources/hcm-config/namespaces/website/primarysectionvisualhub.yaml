@@ -1,7 +1,7 @@
 ---
 definitions:
   config:
-    /hippo:namespaces/website/tilesectionvisualhub:
+    /hippo:namespaces/website/primarysectionvisualhub:
       /editor:templates:
         /_default_:
           jcr:primaryType: frontend:plugincluster
@@ -19,7 +19,7 @@ definitions:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /tilesectionheading:
+          /primarysectionheading:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '30'
@@ -29,19 +29,10 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-          /tilesectionintroduction:
+          /primarysectionlinks:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Section introduction
-            field: sectionintroduction
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /tilesectionlinks:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Tile Sections links builder
+            caption: Primary tile sections links builder
             compoundList: website:visualinternallink,website:visualexternallink,website:visualassetlink
             contentPickerType: links
             field: links
@@ -55,7 +46,7 @@ definitions:
           /links:
             hipposysedit:multiple: true
             hipposysedit:ordered: true
-            hipposysedit:path: website:tilesectionlinks
+            hipposysedit:path: website:primarysectionlinks
             hipposysedit:type: hippo:compound
             hipposysedit:validators:
             - contentblocks-validator
@@ -64,20 +55,11 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: website:tilesectionheading
+            hipposysedit:path: website:primarysectionheading
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators:
-            - non-empty
-            - required
-            jcr:primaryType: hipposysedit:field
-          /sectionintroduction:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: website:tilesectionintroduction
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
+            - optional
             jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
@@ -93,11 +75,7 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
-          /website:tilesectionintroduction:
-            hippostd:content: ''
-            jcr:primaryType: hippostd:html
-          jcr:primaryType: website:tilesectionvisualhub
-          website:tilesectionheading: ''
+          jcr:primaryType: website:primarysectionvisualhub
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:
       - editor:editable

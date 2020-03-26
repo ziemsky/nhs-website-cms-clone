@@ -84,16 +84,14 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /links:
+          /primarysectionvisualhub:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Links builder
-            compoundList: website:visualinternallink,website:visualexternallink,website:visualassetlink
-            contentPickerType: links
-            field: links
+            caption: primarysectionvisualhub
+            field: primarysectionvisualhub
             hint: ''
             jcr:primaryType: frontend:plugin
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
           /tilesections:
             /cluster.options:
@@ -169,13 +167,13 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             jcr:primaryType: hipposysedit:field
-          /links:
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:links
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators:
-            - contentblocks-validator
+          /primarysectionvisualhub:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:primarysectionvisualhub
+            hipposysedit:primary: false
+            hipposysedit:type: website:primarysectionvisualhub
             jcr:primaryType: hipposysedit:field
           /seosummary:
             hipposysedit:mandatory: false
@@ -253,6 +251,8 @@ definitions:
           /website:introduction:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          /website:primarysectionvisualhub:
+            jcr:primaryType: website:primarysectionvisualhub
           /website:seosummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
@@ -260,11 +260,11 @@ definitions:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
           /website:tilesections:
-            /website:sectionintroduction:
+            /website:tilesectionintroduction:
               hippostd:content: ''
               jcr:primaryType: hippostd:html
             jcr:primaryType: website:tilesectionvisualhub
-            website:sectionheading: ''
+            website:tilesectionheading: ''
           common:searchRank: 3
           common:searchable: true
           hippostd:holder: holder
