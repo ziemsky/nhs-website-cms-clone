@@ -3,29 +3,12 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/cyber-data-security-homepage:
       /main:
-        /alerts:
-          hst:referencecomponent: cyber-security-homepage/alerts
-          jcr:primaryType: hst:containercomponentreference
         /banner:
           hst:referencecomponent: cyber-security-homepage/banner
           jcr:primaryType: hst:containercomponentreference
-        /case-studies:
-          hst:referencecomponent: cyber-security-homepage/case-studies
+        /main:
+          hst:referencecomponent: cyber-security-homepage/main
           jcr:primaryType: hst:containercomponentreference
-        /modules:
-          hst:referencecomponent: cyber-security-homepage/modules
-          jcr:primaryType: hst:containercomponentreference
-        /most-used:
-          hst:referencecomponent: cyber-security-homepage/most-used
-          jcr:primaryType: hst:containercomponentreference
-        /useful-info:
-          hst:referencecomponent: cyber-security-homepage/useful-info
-          jcr:primaryType: hst:containercomponentreference
-        hst:componentclassname: uk.nhs.digital.common.components.DscHomeComponent
-        hst:parameternames:
-        - alertPageSize
-        hst:parametervalues:
-        - '3'
         hst:template: cyber-data-security-homepage
         jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/apppage

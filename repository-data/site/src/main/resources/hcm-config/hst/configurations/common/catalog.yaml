@@ -19,6 +19,12 @@ definitions:
           hst:template: document-list
           hst:xtype: HST.Item
           jcr:primaryType: hst:containeritemcomponent
+        /cyberAlert:
+          hst:componentclassname: uk.nhs.digital.common.components.CyberAlertComponent
+          hst:label: Cyber Alert
+          hst:template: cyber-alerts
+          hst:xtype: hst.item
+          jcr:primaryType: hst:containeritemcomponent
         /eventslist:
           hst:componentclassname: uk.nhs.digital.common.components.EventsComponent
           hst:iconpath: images/essentials/catalog-component-icons/events-list.png

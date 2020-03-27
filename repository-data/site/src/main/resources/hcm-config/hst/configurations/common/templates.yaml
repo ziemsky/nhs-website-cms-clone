@@ -56,6 +56,9 @@ definitions:
       /cyber-alert-hub:
         hst:renderpath: webfile:/freemarker/common/cyber-alert-hub.ftl
         jcr:primaryType: hst:template
+      /cyber-alerts:
+        hst:renderpath: webfile:/freemarker/common/cyber-alerts.ftl
+        jcr:primaryType: hst:template
       /cyber-data-security-homepage:
         hst:renderpath: webfile:/freemarker/common/cyber-data-security-homepage.ftl
         jcr:primaryType: hst:template
