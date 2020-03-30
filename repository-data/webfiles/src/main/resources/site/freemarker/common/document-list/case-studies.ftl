@@ -24,20 +24,21 @@
             </div>
         </div>
 
-        <!-- todo: Change template to match case studies doc type once created -->
         <#if pageable?? && pageable.items?has_content>
             <div class="quote-box-list--grid">
-                <div class="quote-box-list--grid-row">
-                    <#list pageable.items as caseStudy>
-                        <#assign item = caseStudy />
-                        <#assign item += {"quote": caseStudy.leadParagraph, "person":caseStudy.authorName, "role":caseStudy.authorJobTitle, "organisation":caseStudy.authorOrganisation} />
-                        <#assign item += {"grid": true} />
-                        <#assign item += {"newStyle": true} />
-                        <div class="quote-box__container quote-box--col-${pageable.items?size}">
-                            <@quoteSection item/>
-                        </div>
-                    </#list>
-                </div>
+                <#list pageable.items?chunk(2) as row>
+                    <div class="quote-box-list--grid-row">
+                        <#list row as caseStudy>
+                            <#assign item = caseStudy />
+                            <#assign item += {"quote": caseStudy.summary, "person":caseStudy.authorName, "role":caseStudy.authorJobTitle, "organisation":caseStudy.authorOrganisation} />
+                            <#assign item += {"grid": true} />
+                            <#assign item += {"newStyle": true} />
+                            <div class="quote-box__container quote-box--col-${row?size}">
+                                <@quoteSection item/>
+                            </div>
+                        </#list>
+                    </div>
+                </#list>
             </div>
         </#if>
     </div>

@@ -34,10 +34,10 @@
         &-row {
             display: inline-block;
             width: 100%;
+            margin-bottom: -10px;
 
             &:first-child {
                 margin-top: $gutter;
-                margin-bottom: -10px;
             }
 
             .quote-box__container {
@@ -63,10 +63,6 @@
             }
 
             @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
-                &:first-child {
-                    margin-bottom: 0;
-                }
-
                 .quote-box--col-2 {
                     width: 50%;
                 }

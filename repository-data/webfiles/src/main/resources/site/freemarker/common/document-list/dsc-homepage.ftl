@@ -15,10 +15,10 @@
                 <h2 class="cyber-header__title">${wrappingDocument.getTitle()}</h2>
             </div>
 
-            <#if document.internal?has_content>
-                <@hst.link var="link" hippobean=document.internal/>
+            <#if wrappingDocument.internal?has_content>
+                <@hst.link var="link" hippobean=wrappingDocument.internal/>
             <#else>
-                <#assign link=document.external/>
+                <#assign link=wrappingDocument.external/>
             </#if>
 
             <div class="cyber-header__cta ctabtn-right"
