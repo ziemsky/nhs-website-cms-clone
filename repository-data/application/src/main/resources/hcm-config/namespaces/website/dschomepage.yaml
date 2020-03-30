@@ -1,64 +1,60 @@
+---
 definitions:
   config:
     /hippo:namespaces/website/dschomepage:
-      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:primaryType: hipposysedit:templatetype
-      jcr:uuid: de8db540-1b4f-4211-9ce1-e3d001961661
       /editor:templates:
-        jcr:primaryType: editor:templateset
         /_default_:
           jcr:primaryType: frontend:plugincluster
-          frontend:properties: [mode]
-          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
-          frontend:services: [wicket.id, validator.id]
+          frontend:properties:
+          - mode
+          frontend:references:
+          - wicket.model
+          - model.compareTo
+          - engine
+          - validator.id
+          frontend:services:
+          - wicket.id
+          - validator.id
           /root:
             item: ${cluster.id}.field
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /title:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
             caption: Title
             field: title
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /summary:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /summary:
             caption: Summary
             field: summary
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+          /seoSummary:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /seoSummary:
             caption: seoSummary
             field: seoSummary
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+          /bannerimagelink:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /bannerimagelink:
             caption: Link to Banner image
             field: bannerimagelink
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
+        jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:primaryType: hippo:handle
-        jcr:uuid: 3ccf0274-3a37-4653-9c74-21372f467894
         /hipposysedit:nodetype:
-          hipposysedit:node: true
-          hipposysedit:supertype: ['website:basedocument', 'hippostd:relaxed', 'hippotranslation:translated']
-          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
-          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:uuid: b07c3773-ab98-4edc-a0dd-28a686d58373
           /bannerimagelink:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -91,23 +87,21 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             jcr:primaryType: hipposysedit:field
+          hipposysedit:node: true
+          hipposysedit:supertype:
+          - website:basedocument
+          - hippostd:relaxed
+          - hippotranslation:translated
+          hipposysedit:uri: http://digital.nhs.uk/jcr/website/nt/1.0
+          jcr:mixinTypes:
+          - mix:referenceable
+          - hipposysedit:remodel
+          jcr:primaryType: hipposysedit:nodetype
+        jcr:mixinTypes:
+        - mix:referenceable
+        jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
-        jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          common:searchable: true
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2020-03-16T14:47:50.794Z
-          hippostdpubwf:lastModificationDate: 2020-03-16T14:47:50.793Z
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:primaryType: website:dschomepage
-          website:summary: ''
-          website:title: ''
-          jcr:uuid: 46fe625d-5702-4305-a031-47548741c830
           /website:bannerimagelink:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
@@ -117,3 +111,22 @@ definitions:
           /website:seoSummary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
+          common:searchable: true
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2020-03-16T14:47:50.794Z
+          hippostdpubwf:lastModificationDate: 2020-03-16T14:47:50.793Z
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes:
+          - mix:referenceable
+          jcr:primaryType: website:dschomepage
+          website:summary: ''
+          website:title: ''
+        jcr:primaryType: hipposysedit:prototypeset
+      jcr:mixinTypes:
+      - editor:editable
+      - mix:referenceable
+      jcr:primaryType: hipposysedit:templatetype

@@ -35,6 +35,9 @@ definitions:
       /businessunit:
         hst:renderpath: webfile:/freemarker/common/businessunit.ftl
         jcr:primaryType: hst:template
+      /callToAction:
+        hst:renderpath: webfile:/freemarker/common/callToAction.ftl
+        jcr:primaryType: hst:template
       /categorylist-article:
         hst:renderpath: webfile:/freemarker/common/categorylist-article.ftl
         jcr:primaryType: hst:template

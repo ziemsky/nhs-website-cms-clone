@@ -22,9 +22,9 @@
                             <div class="column--one-half column--reset">
                                 <h1 class="local-header__title local-header__title--dark"
                                     data-uipath="document.title">${document.title}</h1>
-                                <p class="article-header__subtitle article-header__subtitle--dark">
+                                <div class="article-header__subtitle article-header__subtitle--dark">
                                     <@hst.html hippohtml=document.content contentRewriter=gaContentRewriter/>
-                                </p>
+                                </div>
                             </div>
                         </div>
                     </div>

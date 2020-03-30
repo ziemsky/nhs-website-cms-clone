@@ -6,9 +6,9 @@
     <@hst.include ref= "banner"/>
 
     <div class="grid-wrapper">
-        <main class="site-main">
+       <div>
             <@hst.include ref="main"/>
-        </main>
+       </div>
 
     </div>
 

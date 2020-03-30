@@ -16,7 +16,7 @@
     <#if ! custom_summary?has_content && document != "simulating_doc"  >
       <#assign hasDocumentSummary = document.summary?? && document.summary.content?has_content />
       <#if hasDocumentSummary >
-        <#assign custom_summary = document.summary />
+        <#assign custom_summary = document.content />
       </#if>
     </#if>
 
@@ -77,12 +77,13 @@
 
                               <div ${schemaProp} class="article-header__subtitle" data-uipath="website.${doctype}.summary">
                                   ${custom_summary}
-                              </div>
+                                  <@hst.html hippohtml=custom_summary/>
+                                  </div>
                             </#if>
                         </div>
                         <#if hasFinalPageIcon>
                             <div class="column--one-third column--reset local-header__icon">
-                              <#if hasBannerControls && document.bannercontrols.icon?has_content || document != "simulating_doc" && hasPageIcon > 
+                              <#if hasBannerControls && document.bannercontrols.icon?has_content || document != "simulating_doc" && hasPageIcon >
                                   <#-- ex. Service case - image from HippoGalleryImageSet -->
                                   <@hst.link hippobean=headerIcon.original fullyQualified=true var="image" />
                                   <#if image?ends_with("svg")>
