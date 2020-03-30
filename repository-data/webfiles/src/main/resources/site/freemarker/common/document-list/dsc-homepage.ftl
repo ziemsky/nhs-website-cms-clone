@@ -30,18 +30,26 @@
 
         <#if pageable?? && pageable.items?has_content>
             <div class="hub-box-list hub-box-list--grid">
-                <div class="hub-box-list--grid-row">
-                    <#list pageable.items as usefulInfoData>
-                        <#assign item = usefulInfoData />
-                        <@hst.link hippobean=item var="itemLink" />
-                        <#assign item += {"link": itemLink} />
+                <#assign index=0/>
+                <#list pageable.items?chunk(3) as row>
+                    <div class="hub-box-list--grid-row">
+                        <#list pageable.items as itemData>
+                            <#assign item = itemData />
+                            <@hst.link hippobean=item var="itemLink" />
+                            <#assign item += {"link": itemLink} />
 
-                        <#assign item += {"grid": true} />
-                        <#assign item += {"newStyle": true} />
-                        <#assign item += {"colSize": pageable.items?size} />
-                        <@cyberAlertBox item></@cyberAlertBox>
-                    </#list>
-                </div>
+                            <#assign item += {"grid": true} />
+                            <#assign item += {"newStyle": true} />
+                            <#assign item += {"colSize": row?size} />
+
+                            <#assign key = slugify(wrappingDocument.getTitle()) + "-" + index + "-" + itemData?index />
+                            <#assign item += {"key":  key}/>
+
+                            <@cyberAlertBox item></@cyberAlertBox>
+                        </#list>
+                    </div>
+                    <#assign index += 1/>
+                </#list>
             </div>
         </#if>
     </div>

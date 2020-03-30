@@ -14,10 +14,13 @@
     <#assign custom_summary = summary />
     <#assign hasDocumentSummary = false />
     <#if ! custom_summary?has_content && document != "simulating_doc"  >
-      <#assign hasDocumentSummary = document.summary?? && document.summary.content?has_content />
-      <#if hasDocumentSummary >
-        <#assign custom_summary = document.content />
-      </#if>
+        <#assign hasDocumentSummary = document.summary?? && document.summary.content?has_content />
+        <#assign hasDocumentContent = document.content?? && document.content?has_content />
+        <#if hasDocumentSummary >
+            <#assign custom_summary = document.summary />
+        <#elseif hasDocumentContent>
+            <#assign custom_summary = document.content />
+        </#if>
     </#if>
 
     <#assign hasBannerControls = document != "simulating_doc" && document.bannercontrols?? && document.bannercontrols?has_content />
@@ -64,7 +67,7 @@
                             </#if>
 
                             <h1 id="top" class="local-header__title" data-uipath="document.title" ${titleProp} ${headerStyle}>${custom_title}</h1>
-                            <#if hasDocumentSummary>
+                            <#if hasDocumentSummary || hasDocumentContent>
                               <div class="article-header__subtitle" data-uipath="website.${doctype}.summary">
                                 <@hst.html hippohtml=custom_summary contentRewriter=gaContentRewriter/>
                               </div>
@@ -77,7 +80,6 @@
 
                               <div ${schemaProp} class="article-header__subtitle" data-uipath="website.${doctype}.summary">
                                   ${custom_summary}
-                                  <@hst.html hippohtml=custom_summary/>
                                   </div>
                             </#if>
                         </div>

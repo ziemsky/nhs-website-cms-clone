@@ -23,7 +23,7 @@
                 </#if>
 
                 <#if options.title??>
-                    <h2 class="hub-box__title">
+                    <h2 class="hub-box__title" ${options.key???then("id=${options.key}", "")}>
                         <#if options.link??>
                             <a href="${options.link}">
                         </#if>
@@ -32,13 +32,19 @@
                             </a>
                         </#if>
                     </h2>
+
+                    <#if options.key??>
+                        <#-- call function webkitLineClamp(element, lineCount, colour) to implement multiline ellipsis -->
+                        <script>
+                            webkitLineClamp(document.getElementById("${options.key}"), 3, "white");
+                        </script>
+                    </#if>
                 </#if>
 
                 <#if options.publishedDate?? && !isNewStyle>
                     <span class="hub-box__meta">Published: ${options.publishedDate}, Last updated: ${options.lastModifiedDate}</span>
                     <span class="hub-box__meta"></span>
                 </#if>
-
 
                 <#if options.text??>
                     <p class="hub-box__text">${options.text}</p>

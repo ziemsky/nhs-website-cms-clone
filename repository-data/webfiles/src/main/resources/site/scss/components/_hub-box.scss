@@ -18,7 +18,7 @@
 
         &__contents {
             margin-top: 0;
-            padding: 20px;
+            padding: $baseline-grid-unit * 5;
         }
 
         &__image {
@@ -138,10 +138,10 @@
         &-row {
             display: inline-block;
             width: 100%;
+            margin-bottom: -10px;
 
             &:first-child {
                 margin-top: $gutter;
-                margin-bottom: -10px;
             }
 
             .hub-box--cyber-alert {
@@ -153,7 +153,12 @@
                 background: transparent;
 
                 .hub-box__contents {
+                    position: relative;
                     min-height: 130px;
+
+                    @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
+                        min-height: 185px;
+                    }
 
                     &--red {
                         background-color: $col-critical-background;
@@ -170,9 +175,11 @@
 
                 .hub-box__title {
                     @include core-font(26);
+                    padding-bottom: $gutter;
+                    max-height: 104px;
 
                     a {
-                        color: white;
+                        color: $white;
                     }
                 }
 
@@ -180,16 +187,14 @@
                     @include core-font(14);
 
                     background: transparent;
-                    color: white;
-                    padding: 0 20px 0 0;
+                    color: $white;
                     margin: 0;
+                    padding: 0;
+                    position: absolute;
+                    bottom: $baseline-grid-unit * 5;
 
-                    @include media($min-width: $min-tablet-width, $ignore-for-ie: true) {
-                        padding: 0;
-
-                        &--right {
-                            float: right;
-                        }
+                    &--right {
+                        right: $baseline-grid-unit * 5;
                     }
                 }
 
@@ -203,10 +208,6 @@
             }
 
             @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
-                &:first-child {
-                    margin-bottom: 0;
-                }
-
                 .hub-box--col-2 {
                     width: 50%;
                 }

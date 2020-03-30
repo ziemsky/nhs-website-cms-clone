@@ -69,7 +69,7 @@
                             <#assign item += {"severityLabel": "Severity", "dateLabel": "Date"} />
 
                             <#assign item += {"grid": true} />
-                            <#assign item += {"notOldStyle": true} />
+                            <#assign item += {"newStyle": true} />
 
                             <#assign item += {"colSize": cyberAlertsList?size} />
                             <@cyberAlertBox item></@cyberAlertBox>
@@ -107,7 +107,7 @@
                         <#list serviceDataList as item >
                             <#assign serviceData = item />
                             <#assign serviceData += {"grid": true} />
-                            <#assign serviceData += {"notOldStyle": true} />
+                            <#assign serviceData += {"newStyle": true} />
 
                             <#assign serviceData += {"colSize": serviceDataList?size} />
                             <@cyberAlertBox serviceData></@cyberAlertBox>
@@ -145,7 +145,7 @@
                         <#list usefulInfoDataList as item >
                             <#assign serviceData = item />
                             <#assign serviceData += {"grid": true} />
-                            <#assign serviceData += {"notOldStyle": true} />
+                            <#assign serviceData += {"newStyle": true} />
 
                             <#assign serviceData += {"colSize": usefulInfoDataList?size} />
                             <@cyberAlertBox serviceData></@cyberAlertBox>
@@ -206,7 +206,7 @@
                             <#assign caseStudyData = item />
                             <#assign caseStudyData += {"quote": item.leadParagraph, "person":item.authorName, "role":item.authorJobTitle, "organisation":item.authorOrganisation} />
                             <#assign caseStudyData += {"grid": true} />
-                            <#assign caseStudyData += {"notOldStyle": true} />
+                            <#assign caseStudyData += {"newStyle": true} />
                             <#assign caseStudyData += {"colSize": caseStudiesList?size} />
                             <div class="quote-box__container quote-box--col-${caseStudiesList?size}">
                                 <@quoteSection caseStudyData/>
