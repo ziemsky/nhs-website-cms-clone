@@ -3,26 +3,31 @@
 <#include "../macro/cyberAlertBox.ftl">
 <#include "../macro/sections/quoteSection.ftl">
 
-<@hst.setBundle basename="rb.doctype.data-security-homepage"/>
-<@fmt.message key="headers.case-studies" var="caseStudies" />
-<@fmt.message key="labels.all-case-studies" var="caseStudiesBtn" />
-<@fmt.message key="url.all-case-studies" var="caseStudiesBtnUrl" />
-
+<#-- @ftlvariable name="wrappingDocument" type="uk.nhs.digital.website.beans.Calltoaction" -->
 
 <div class="grid-row cyber-grid-row">
-    <div class="column column--reset" id="${slugify(caseStudies)}">
-        <div class="cyber-header">
-            <div class="cyber-header__group">
-                <h2 class="cyber-header__title">${caseStudies}</h2>
-            </div>
+    <div class="column column--reset" id="${slugify(wrappingDocument.getTitle())}">
+        <#if wrappingDocument??>
+            <div class="cyber-header">
+                <div class="cyber-header__group">
+                    <h2 class="cyber-header__title">${wrappingDocument.getTitle()}</h2>
+                </div>
 
-            <div class="cyber-header__cta ctabtn-right"
-                 aria-labelledby="ctabtn-${slugify(caseStudiesBtn)}">
-                <a href="${caseStudiesBtnUrl}"
-                   class="ctabtn--nhs-digital-button"
-                   id="ctabtn-${slugify(caseStudiesBtn)}">${caseStudiesBtn}</a>
+                <#if wrappingDocument.internal?has_content>
+                    <@hst.link var="link" hippobean=wrappingDocument.internal/>
+                <#else>
+                    <#assign link=wrappingDocument.external/>
+                </#if>
+
+                <#if wrappingDocument.getLabel()?has_content && link?has_content>
+                <div class="cyber-header__cta ctabtn-right"
+                     aria-labelledby="ctabtn-${slugify(wrappingDocument.getLabel())}">
+                    <a href="${link}" class="ctabtn--nhs-digital-button"
+                       id="ctabtn-${slugify(wrappingDocument.getLabel())}">${wrappingDocument.getLabel()}</a>
+                </div>
+                </#if>
             </div>
-        </div>
+        </#if>
 
         <#if pageable?? && pageable.items?has_content>
             <div class="quote-box-list--grid">

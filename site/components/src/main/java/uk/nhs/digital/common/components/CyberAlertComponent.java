@@ -29,11 +29,9 @@ public class CyberAlertComponent extends CommonComponent {
         super.doBeforeRender(request, response);
 
         final CyberAlertComponentInfo componentParametersInfo = getComponentParametersInfo(request);
-        request.getRequestContext().getContentBean();
         final int configuredAlertSize = componentParametersInfo.getNumberOfAlertsToDisplay();
-        request.setAttribute("configuredAlertSize", configuredAlertSize);
 
-        HippoBean baseContentBean = request.getRequestContext().getSiteContentBaseBean();
+        final HippoBean baseContentBean = request.getRequestContext().getSiteContentBaseBean();
 
         try {
             HstQueryBuilder builder = HstQueryBuilder.create(baseContentBean);
@@ -42,10 +40,9 @@ public class CyberAlertComponent extends CommonComponent {
                 .build()
                 .execute();
 
-            List<CyberAlert> alertsListToDisplay = createCyberAlertsList(configuredAlertSize, alertsQueryResult);
+            final List<CyberAlert> alertsListToDisplay = createCyberAlertsList(configuredAlertSize, alertsQueryResult);
 
             request.setAttribute("cyberAlertList", alertsListToDisplay);
-            request.setAttribute("listSize", alertsListToDisplay.size());
 
         } catch (QueryException e) {
             LOGGER.error("Failed to execute Cyber Alerts Query", e);
@@ -53,13 +50,13 @@ public class CyberAlertComponent extends CommonComponent {
 
     }
 
-    private List<CyberAlert> createCyberAlertsList(int configuredAlertSize, HstQueryResult alertsQueryResult) {
+    private List<CyberAlert> createCyberAlertsList(final int configuredAlertSize, final HstQueryResult alertsQueryResult) {
         Calendar twoWeekAgo = Calendar.getInstance();
         twoWeekAgo.add(Calendar.WEEK_OF_YEAR, -2);
 
         HippoBeanIterator allAlerts = alertsQueryResult.getHippoBeans();
-        List<CyberAlert> severeWithinTwoWeeks = new ArrayList<>();
-        List<CyberAlert> allOtherAlerts = new ArrayList<>();
+        final List<CyberAlert> severeWithinTwoWeeks = new ArrayList<>();
+        final List<CyberAlert> allOtherAlerts = new ArrayList<>();
         while (allAlerts.hasNext()) {
             CyberAlert cyberAlert = (CyberAlert) allAlerts.next();
             if (cyberAlert.getSeverity().equals("High") && cyberAlert.getPublishedDate().getTimeInMillis() > twoWeekAgo.getTimeInMillis()) {

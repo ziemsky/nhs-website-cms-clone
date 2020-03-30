@@ -3,30 +3,30 @@
 <#include "../macro/cyberAlertBox.ftl">
 
 <#-- @ftlvariable name="wrappingDocument" type="uk.nhs.digital.website.beans.Calltoaction" -->
-<@hst.setBundle basename="rb.doctype.data-security-homepage"/>
-<@fmt.message key="headers.useful-info" var="usefulInfo" />
-<@fmt.message key="labels.all-useful-info" var="usefulInfoBtn" />
-<@fmt.message key="url.all-useful-info" var="usefulInfoBtnUrl" />
 
 <div class="grid-row cyber-grid-row">
     <div class="column column--reset" id="${slugify(wrappingDocument.getTitle())}">
-        <div class="cyber-header">
-            <div class="cyber-header__group">
-                <h2 class="cyber-header__title">${wrappingDocument.getTitle()}</h2>
-            </div>
+        <#if wrappingDocument??>
+            <div class="cyber-header">
+                <div class="cyber-header__group">
+                    <h2 class="cyber-header__title">${wrappingDocument.getTitle()}</h2>
+                </div>
 
-            <#if wrappingDocument.internal?has_content>
-                <@hst.link var="link" hippobean=wrappingDocument.internal/>
-            <#else>
-                <#assign link=wrappingDocument.external/>
-            </#if>
+                <#if wrappingDocument.internal?has_content>
+                    <@hst.link var="link" hippobean=wrappingDocument.internal/>
+                <#else>
+                    <#assign link=wrappingDocument.external/>
+                </#if>
 
-            <div class="cyber-header__cta ctabtn-right"
-                 aria-labelledby="ctabtn-${slugify(wrappingDocument.getLabel())}">
-                <a href="${link}" class="ctabtn--nhs-digital-button"
-                   id="ctabtn-${slugify(wrappingDocument.getLabel())}">${wrappingDocument.getLabel()}</a>
+                <#if wrappingDocument.getLabel()?has_content && link?has_content>
+                <div class="cyber-header__cta ctabtn-right"
+                     aria-labelledby="ctabtn-${slugify(wrappingDocument.getLabel())}">
+                    <a href="${link}" class="ctabtn--nhs-digital-button"
+                       id="ctabtn-${slugify(wrappingDocument.getLabel())}">${wrappingDocument.getLabel()}</a>
+                </div>
+                </#if>
             </div>
-        </div>
+        </#if>
 
         <#if pageable?? && pageable.items?has_content>
             <div class="hub-box-list hub-box-list--grid">
