@@ -9,20 +9,20 @@ import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "website:tilesectionvisualhub")
 @Node(jcrType = "website:tilesectionvisualhub")
-public class TileSection extends CommonFieldsBean {
+public class TileSectionVisualHub extends CommonFieldsBean {
 
-    @HippoEssentialsGenerated(internalName = "website:sectionheading")
-    public String getSectionHeading() {
-        return getProperty("website:sectionheading");
+    @HippoEssentialsGenerated(internalName = "website:tilesectionheading")
+    public String getTileSectionHeading() {
+        return getProperty("website:tilesectionheading");
     }
 
-    @HippoEssentialsGenerated(internalName = "website:sectionintroduction")
-    public HippoHtml getSectionIntroduction() {
-        return getHippoHtml("website:sectionintroduction");
+    @HippoEssentialsGenerated(internalName = "website:tilesectionintroduction")
+    public HippoHtml getTileSectionIntroduction() {
+        return getHippoHtml("website:tilesectionintroduction");
     }
 
     @HippoEssentialsGenerated(internalName = "website:tilesectionlinks")
-    public List<HippoBean> getLinks() {
+    public List<HippoBean> getTileSectionLinks() {
         return getChildBeansByName("website:tilesectionlinks");
     }
 
