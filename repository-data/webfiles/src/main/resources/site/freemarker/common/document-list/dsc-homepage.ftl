@@ -33,7 +33,7 @@
                 <#assign index=0/>
                 <#list pageable.items?chunk(3) as row>
                     <div class="hub-box-list--grid-row">
-                        <#list pageable.items as itemData>
+                        <#list row as itemData>
                             <#assign item = itemData />
                             <@hst.link hippobean=item var="itemLink" />
                             <#assign item += {"link": itemLink} />

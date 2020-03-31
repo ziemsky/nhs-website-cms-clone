@@ -23,7 +23,8 @@
     }
 
     &--short {
-        height: 355px;
+        min-height: 355px;
+        height: auto;
     }
 }
 

@@ -8,7 +8,7 @@ definitions:
           hst:xtype: hst.vbox
           jcr:primaryType: hst:containercomponent
         /main:
-          hst:xtype: hst.vbox
+          hst:xtype: hst.nomarkup
           jcr:primaryType: hst:containercomponent
         jcr:primaryType: hst:containercomponentfolder
       /homepage:
