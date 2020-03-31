@@ -32,13 +32,22 @@ definitions:
           /primarysectionlinks:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: Primary tile sections links builder
+            caption: Primary sections links builder
             compoundList: website:visualinternallink,website:visualexternallink,website:visualassetlink
             contentPickerType: links
             field: links
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+          /tilesectionvisualhub:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: Tile Sections links builder
+            field: tilesectionvisualhub
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
@@ -61,6 +70,14 @@ definitions:
             hipposysedit:validators:
             - optional
             jcr:primaryType: hipposysedit:field
+          /tilesectionvisualhub:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: website:tilesectionvisualhub
+            hipposysedit:primary: false
+            hipposysedit:type: website:tilesectionvisualhub
+            jcr:primaryType: hipposysedit:field
           hipposysedit:node: true
           hipposysedit:supertype:
           - hippo:compound
@@ -75,6 +92,12 @@ definitions:
         jcr:primaryType: hippo:handle
       /hipposysedit:prototypes:
         /hipposysedit:prototype:
+          /website:tilesectionvisualhub:
+            /website:tilesectionintroduction:
+              hippostd:content: ''
+              jcr:primaryType: hippostd:html
+            jcr:primaryType: website:tilesectionvisualhub
+            website:tilesectionheading: ''
           jcr:primaryType: website:primarysectionvisualhub
         jcr:primaryType: hipposysedit:prototypeset
       jcr:mixinTypes:

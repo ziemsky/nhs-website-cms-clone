@@ -84,20 +84,11 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-          /primarysectionvisualhub:
+          /primarysections:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-            caption: primarysectionvisualhub
+            caption: Primary section
             field: primarysectionvisualhub
-            hint: ''
-            jcr:primaryType: frontend:plugin
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-          /tilesections:
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-            caption: Tile Section
-            field: tilesectionvisualhub
             hint: ''
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
@@ -169,9 +160,9 @@ definitions:
             jcr:primaryType: hipposysedit:field
           /primarysectionvisualhub:
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
+            hipposysedit:multiple: true
             hipposysedit:ordered: false
-            hipposysedit:path: website:primarysectionvisualhub
+            hipposysedit:path: website:primarysections
             hipposysedit:primary: false
             hipposysedit:type: website:primarysectionvisualhub
             jcr:primaryType: hipposysedit:field
@@ -198,14 +189,6 @@ definitions:
             hipposysedit:path: website:summary
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-            jcr:primaryType: hipposysedit:field
-          /tilesectionvisualhub:
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: website:tilesections
-            hipposysedit:primary: false
-            hipposysedit:type: website:tilesectionvisualhub
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -251,7 +234,13 @@ definitions:
           /website:introduction:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          /website:primarysectionvisualhub:
+          /website:primarysections:
+            /website:tilesectionvisualhub:
+              /website:tilesectionintroduction:
+                hippostd:content: ''
+                jcr:primaryType: hippostd:html
+              jcr:primaryType: website:tilesectionvisualhub
+              website:tilesectionheading: ''
             jcr:primaryType: website:primarysectionvisualhub
           /website:seosummary:
             hippostd:content: ''
@@ -259,12 +248,6 @@ definitions:
           /website:summary:
             hippostd:content: ''
             jcr:primaryType: hippostd:html
-          /website:tilesections:
-            /website:tilesectionintroduction:
-              hippostd:content: ''
-              jcr:primaryType: hippostd:html
-            jcr:primaryType: website:tilesectionvisualhub
-            website:tilesectionheading: ''
           common:searchRank: 3
           common:searchable: true
           hippostd:holder: holder
