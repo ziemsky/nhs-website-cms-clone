@@ -1,5 +1,6 @@
 package uk.nhs.digital.common.components;
 
+import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
@@ -31,10 +32,11 @@ public class CyberAlertComponent extends CommonComponent {
         final CyberAlertComponentInfo componentParametersInfo = getComponentParametersInfo(request);
         final int configuredAlertSize = componentParametersInfo.getNumberOfAlertsToDisplay();
 
-        final HippoBean baseContentBean = request.getRequestContext().getSiteContentBaseBean();
-
         try {
-            HstQueryBuilder builder = HstQueryBuilder.create(baseContentBean);
+            final HippoBean baseContentBean = request.getRequestContext().getSiteContentBaseBean();
+            final HippoBean cyberAlertScope = (HippoBean) request.getRequestContext().getObjectBeanManager().getObject(baseContentBean.getPath() + "/cyber-alerts");
+
+            HstQueryBuilder builder = HstQueryBuilder.create(cyberAlertScope);
             HstQueryResult alertsQueryResult = builder.ofTypes(CyberAlert.class)
                 .orderByDescending("publicationsystem:NominalDate")
                 .build()
@@ -44,7 +46,7 @@ public class CyberAlertComponent extends CommonComponent {
 
             request.setAttribute("cyberAlertList", alertsListToDisplay);
 
-        } catch (QueryException e) {
+        } catch (QueryException | ObjectBeanManagerException e) {
             LOGGER.error("Failed to execute Cyber Alerts Query", e);
         }
 
