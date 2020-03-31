@@ -1,6 +1,8 @@
 <#ftl output_format="HTML">
 
 <script>
+    "use strict";
+
     (function() {
         /**
          * @param {HTMLElement} element
@@ -136,6 +138,7 @@
         /**
          * @param {HTMLElement} rootElement
          * @param {number} lineCount
+         * @param {string} colour
          */
         function native(rootElement, lineCount, colour) {
             rootElement.style.overflow = 'hidden';
@@ -149,6 +152,7 @@
         /**
          * @param {HTMLElement} element
          * @param {number} lineCount
+         * @param {string} colour
          */
         function webkitLineClamp(element, lineCount, colour) {
             if (!lineCount) return;
@@ -157,5 +161,5 @@
         }
 
         window.webkitLineClamp = webkitLineClamp;
-    }());
+    })();
 </script>
