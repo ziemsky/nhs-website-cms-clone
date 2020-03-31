@@ -66,6 +66,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.right.item
+          /seoSummary:
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+            caption: SEO Summary Meta Tag field
+            field: seoSummary
+            hint: ''
+            jcr:primaryType: frontend:plugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.left.item
         jcr:primaryType: editor:templateset
       /hipposysedit:nodetype:
         /hipposysedit:nodetype:
@@ -94,6 +103,14 @@ definitions:
             hipposysedit:path: website:link
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
+            jcr:primaryType: hipposysedit:field
+          /seoSummary:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: website:seoSummary
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:seoSummary
             jcr:primaryType: hipposysedit:field
           /title:
             hipposysedit:mandatory: false
@@ -133,6 +150,9 @@ definitions:
           /website:link:
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             jcr:primaryType: hippo:mirror
+          /website:seoSummary:
+            hippostd:content: ''
+            jcr:primaryType: hippostd:html
           common:searchable: true
           hippo:related___pathreference: []
           hippostd:holder: holder
