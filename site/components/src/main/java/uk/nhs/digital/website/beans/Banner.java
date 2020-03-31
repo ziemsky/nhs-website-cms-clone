@@ -44,7 +44,7 @@ public class Banner extends BaseDocument {
         return getLinkedBean("website:link", HippoBean.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "website:seosummary", allowModifications = false)
+    @HippoEssentialsGenerated(internalName = "website:seosummary"   )
     public HippoHtml getSeosummary() {
         return getHippoHtml("website:seosummary");
     }
