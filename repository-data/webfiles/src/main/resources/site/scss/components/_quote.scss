@@ -50,9 +50,19 @@
                 }
 
                 @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
-                    padding-right: 20px;
+                    &:first-child {
+                        padding-right: 10px;
+                    }
 
                     &:last-child {
+                        padding-left: 10px;
+                    }
+
+                    &:first-child, &:only-child {
+                        padding-left: 0;
+                    }
+
+                    &:last-child, &:only-child {
                         padding-right: 0;
                     }
 

@@ -174,34 +174,48 @@
                 }
 
                 .hub-box__title {
-                    @include core-font(24);
-                    padding-bottom: $gutter;
-                    max-height: 104px;
+                    @include core-font(26);
 
                     a {
                         color: $white;
                     }
                 }
 
-                .tag {
-                    @include core-font(14);
+                .tag-list {
+                    @include media($max-width: $min-desktop-width, $ignore-for-ie: true) {
+                        margin-top: $gutter * 3;
+                    }
 
-                    background: transparent;
-                    color: $white;
-                    margin: 0;
-                    padding: 0;
-                    position: absolute;
-                    bottom: $baseline-grid-unit * 5;
+                    .tag {
+                        @include core-font(14);
 
-                    &--right {
-                        right: $baseline-grid-unit * 5;
+                        background: transparent;
+                        color: $white;
+                        margin: 0;
+                        padding: 0;
+                        position: absolute;
+                        bottom: $baseline-grid-unit * 5;
+
+                        &--right {
+                            right: $baseline-grid-unit * 5;
+                        }
                     }
                 }
 
                 @include media($min-width: $min-desktop-width, $ignore-for-ie: true) {
-                    padding-right: 20px;
+                    &:first-child, &:nth-child(2):nth-last-of-type(2) {
+                        padding-right: 10px;
+                    }
 
-                    &:last-child {
+                    &:last-child, &:nth-child(2):nth-last-of-type(2) {
+                        padding-left: 10px;
+                    }
+
+                    &:first-child, &:only-child {
+                        padding-left: 0;
+                    }
+
+                    &:last-child, &:only-child {
                         padding-right: 0;
                     }
                 }
